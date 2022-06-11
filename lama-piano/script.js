@@ -1,4 +1,4 @@
-window.alert(window.screen.orientation);
+window.alert(window.screen.orientation.type);
 
 
 
