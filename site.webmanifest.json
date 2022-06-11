@@ -4,7 +4,7 @@
     "icons": [{
         "src" : "images/icon-logo.JPG",
         "type": "image/png",
-        "sizes": "102x192"
+        "sizes": "192x192"
     }],
     "theme_color": "#000074",
     "display": "fullscreen"
