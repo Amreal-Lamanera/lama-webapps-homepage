@@ -7,5 +7,6 @@
         "sizes": "192x192"
     }],
     "theme_color": "#000074",
-    "display": "fullscreen"
+    "display": "fullscreen",
+    "orientation": "landscape"
 }
