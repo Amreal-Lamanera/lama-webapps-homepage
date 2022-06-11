@@ -1,6 +1,4 @@
-window.alert(window.screen.orientation.type);
-
-
+window.alert("Utilizza il telefono in orizzontale per un risultato migliore!");
 
 const keyElements = document.querySelectorAll('.key');
 
