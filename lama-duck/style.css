@@ -48,7 +48,7 @@ header span {
     /* Centro il contenuto della pagina, creando un piccolo bordo a dx e sx */
     width: 90%;
     margin: 0 auto;
-    padding: 16px;
+    /* padding: 16px; */
 }
 
 /* Logo */

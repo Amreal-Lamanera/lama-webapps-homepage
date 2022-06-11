@@ -3,7 +3,7 @@
   "name": "Talking Duck",
   "icons": [
     {
-      "src": "images/icon.png",
+      "src": "images/talking-duck.png",
       "type": "image/png",
       "sizes": "192x192"
     }
