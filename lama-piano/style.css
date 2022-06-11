@@ -1,0 +1,78 @@
+/* Reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(#0F0F77 5%, #3535EC); /*posso specificare quanti colori voglio, percentuale determina la distribuzione in percentuale del colore */
+    /* per riempire il gradiente devo riempire il body nell'intero viewport */
+    height: 100vh;
+    /* Applico il BG in maniera fissa senza farlo scrollare con la pagina */
+    background-attachment: fixed;
+    /* Per centrare il tutto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.piano-panel {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 94px;
+    background: #F71469;
+    background-image: url('images/panel-reflex.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 15px 15px 0 0;
+}
+
+.piano-panel img {
+    height: 100%;
+    padding: 0 10px 10px 0;
+}
+
+.piano-keys {
+    height: 190px;
+    display: flex;
+}
+
+.key {
+    border-bottom: 6px solid #8c8c8c;
+    border-radius: 0 0 8px 8px;
+}
+
+.key-white {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    width: 64px;
+    background-color: #FFF;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+}
+
+.key-black {
+    height: 60%;
+    width: 44px;
+    background: linear-gradient(#737373 10%, #0d0d0d);
+    /* per sovrapporre utilizzo valori negativi di margin */
+    margin: 0 -22px;
+    /* devo metterlo in primo piano nella "stack" html */
+    z-index: 2;
+    border-right: 6px solid black;
+    border-left: 6px solid black;
+}
+
+/* Specifico uno stato per la pressione */
+.key-white:active {
+    background-color: #dddddd;
+}
+
+.key-black:active {
+    background: #000000;
+}

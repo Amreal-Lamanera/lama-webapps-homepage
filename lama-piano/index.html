@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta legacy aggiunto per i browser più vecchi -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Fornisce istruzioni al viewport -> è lo spazio che ha a disposizione il browser per mostrare le informazioni.
+    In questo caso content istruisce il viewport per falo coincidere con la grandezza del device stesso e lo zoom (scale) deve essere 1 (100%), abilita la visualizzazione da mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolean Apps - Pianoforte</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Manifest fornisce al browser alcune informazioni sulla web app che possono sbloccare funzionalità avanzate -->
+    <link rel="manifest" href="site.webmanifest.json"/>
+</head>
+<body>
+
+    <div class="piano">
+        <div class="piano-panel">
+            <img src="images/lama.PNG" alt="">
+        </div>
+        <div class="piano-keys">
+            <div class="key key-white" id="do"></div>
+            <div class="key key-black" id="dodiesis"></div>
+            <div class="key key-white" id="re"></div>
+            <div class="key key-black" id="rediesis"></div>
+            <div class="key key-white" id="mi"></div>
+            <div class="key key-white" id="fa"></div>
+            <div class="key key-black" id="fadiesis"></div>
+            <div class="key key-white" id="sol"></div>
+            <div class="key key-black" id="soldiesis"></div>
+            <div class="key key-white" id="la"></div>
+            <div class="key key-black" id="ladiesis"></div>
+            <div class="key key-white" id="si"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
