@@ -2,7 +2,7 @@
     "shortname": "Home",
     "name": "Lama Homepage",
     "icons": [{
-        "src" : "images/logo.png",
+        "src" : "images/icon-logo.JPG",
         "type": "image/png",
         "sizes": "102x192"
     }],
