@@ -1,5 +1,5 @@
 const myScreenOrientation = window.screen.orientation;
-myScreenOrientation.lock('landscape');
+myScreenOrientation.lock('landscape-primary');
 
 
 const keyElements = document.querySelectorAll('.key');

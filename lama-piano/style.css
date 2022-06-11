@@ -24,13 +24,16 @@ body {
 
 
 /* INIZIO Logo */
-header a{
-    position: relative;
+header a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     font-size: 1.2em;
     color: #33baf3;
     font-style: oblique;
     font-weight: bolder;
     text-decoration: none;
+    width: 150px;
 }
 
 header img {
@@ -38,12 +41,6 @@ header img {
     width: 56px;
     /* Height è implicita in realtà */
     height: auto;
-}
-
-header span {
-    position: absolute;
-    bottom: 25px;
-    left: 55px;
 }
 /* FINE Logo */
 
