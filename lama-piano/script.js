@@ -1,3 +1,8 @@
+const myScreenOrientation = window.screen.orientation;
+myScreenOrientation.lock('landscape');
+window.alert(window.screen.orientation.type);
+
+
 const keyElements = document.querySelectorAll('.key');
 
 
