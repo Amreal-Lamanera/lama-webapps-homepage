@@ -20,19 +20,29 @@ img {
     max-width: 100%;
 }
 
-header {
-    display: flex;
-    align-items: center;
+/* INIZIO Logo */
+header a{
+    position: relative;
     font-size: 1.2em;
     color: #33baf3;
     font-style: oblique;
     font-weight: bolder;
+    text-decoration: none;
 }
 
 header img {
     margin-bottom: 15px;
-    margin-right: -5px;
+    width: 56px;
+    /* Height è implicita in realtà */
+    height: auto;
 }
+
+header span {
+    position: absolute;
+    bottom: 25px;
+    left: 55px;
+}
+/* FINE Logo */
 
 .container {
     /* Centro il contenuto della pagina, creando un piccolo bordo a dx e sx */
