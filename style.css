@@ -1,0 +1,78 @@
+/* Utilizzo "Ispeziona elemento" con dimensioni iPhone 12Pro */
+
+/* CSS Reset + Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Colore Sfondo */
+body {
+    background: linear-gradient(rgb(0, 0, 116) , rgb(70, 70, 245));
+    background-attachment: fixed;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    /* padding: 16px; */
+}
+
+/* INIZIO Logo */
+header a{
+    position: relative;
+    font-size: 1.2em;
+    color: #33baf3;
+    font-style: oblique;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+header img {
+    margin-bottom: 15px;
+    width: 56px;
+    /* Height è implicita in realtà */
+    height: auto;
+}
+
+header span {
+    position: absolute;
+    bottom: 35px;
+    left: 55px;
+}
+/* FINE Logo */
+
+/* Contenitore dei link alle app */
+.app-container {
+    /* margin-top: 80px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Stile dei link/a */
+.app-container a {
+    margin: 50px 20px 0;
+    width: 100px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+/* Le immagini usate come link devono riempire tutto lo spazio dato ai link/a */
+.app-container a img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.app-container a p {
+    font-size: 1em;
+}

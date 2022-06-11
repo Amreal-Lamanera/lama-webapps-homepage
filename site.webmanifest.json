@@ -1,0 +1,11 @@
+{
+    "shortname": "Home",
+    "name": "Lama Homepage",
+    "icons": [{
+        "src" : "images/logo.png",
+        "type": "image/png",
+        "sizes": "102x192"
+    }],
+    "theme_color": "#1F1FC5",
+    "display": "fullscreen"
+}
