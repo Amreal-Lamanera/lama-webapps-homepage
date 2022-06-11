@@ -1,29 +1,64 @@
-/* Reset css */
+/* CSS Reset + Font */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
+img {
+    max-width: 100%;
+}
+
+/* Colore Sfondo */
 body {
-    background: linear-gradient(#0F0F77 5%, #3535EC); /*posso specificare quanti colori voglio, percentuale determina la distribuzione in percentuale del colore */
-    /* per riempire il gradiente devo riempire il body nell'intero viewport */
-    height: 100vh;
-    /* Applico il BG in maniera fissa senza farlo scrollare con la pagina */
+    background: linear-gradient(#000074 , #4646f5);
     background-attachment: fixed;
-    /* Per centrare il tutto */
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    /* padding: 16px; */
+}
+
+
+/* INIZIO Logo */
+header a{
+    position: relative;
+    font-size: 1.2em;
+    color: #33baf3;
+    font-style: oblique;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+header img {
+    margin-bottom: 15px;
+    width: 56px;
+    /* Height è implicita in realtà */
+    height: auto;
+}
+
+header span {
+    position: absolute;
+    bottom: 25px;
+    left: 55px;
+}
+/* FINE Logo */
+
+.piano-container {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .piano-panel {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 94px;
+    height: 75px;
     background: #F71469;
-    background-image: url('images/panel-reflex.png');
+    background-image: url('../images/panel-reflex.png');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 15px 15px 0 0;

@@ -1,3 +1,7 @@
+const myScreenOrientation = window.screen.orientation;
+myScreenOrientation.lock("portrait");
+
+
 const keyElements = document.querySelectorAll('.key');
 
 
@@ -18,7 +22,7 @@ const notes = {
     si: '12-si.mp3'
 };
 
-function playSound (key) {
+function playSound(key) {
     const audioElement = new Audio();
     const note = notes[key];
     // creo il path dinamicamente concatenando le stringhe
@@ -27,13 +31,13 @@ function playSound (key) {
 }
 
 // foreach consente di iterare tutti gli elementi di una collection
-keyElements.forEach(function(keyElement) {
-        keyElement.addEventListener('touchend', function(){
-            const key = keyElement.id;
-            playSound(key);
-        });
-        keyElement.addEventListener('click', function(){
-            const key = keyElement.id;
-            playSound(key);
-        });
+keyElements.forEach(function (keyElement) {
+    keyElement.addEventListener('touchend', function () {
+        const key = keyElement.id;
+        playSound(key);
+    });
+    keyElement.addEventListener('click', function () {
+        const key = keyElement.id;
+        playSound(key);
+    });
 });
