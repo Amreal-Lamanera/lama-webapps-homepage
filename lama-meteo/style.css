@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* font-family */
+    line-height: 1;
+    color: black;
+    background: linear-gradient(black 10%, #33baf3);
+    height: 100%;
+    background-attachment: fixed;
+    color: rgb(41, 41, 41);
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    /* padding: 16px; */
+}
+
+/* INIZIO Logo */
+header a{
+    position: relative;
+    font-size: 1.2em;
+    color: #33baf3;
+    font-style: oblique;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+header img {
+    margin-bottom: 15px;
+    width: 56px;
+    /* Height è implicita in realtà */
+    height: auto;
+}
+
+header span {
+    position: absolute;
+    bottom: 35px;
+    left: 55px;
+}
+/* FINE Logo */
+
+/* contenuto centrale */
+main {
+    text-align: center;
+}
+
+.weather-info {
+    margin-bottom: 32px;
+}
+
+/* info meteo */
+.weather-icon {
+    max-height: 250px;
+    /* effetto */
+    transition: transform 1s;
+    margin-bottom: 20px;
+}
+
+.weather-location,
+.suggestion {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.weather-temperature {
+    font-size: 112px;
+}
+
+/* pannello dei consigli */
+.panel {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    /* effetto */
+    transition: opacity 0.5s , transform 0.5s;
+}
+
+.panel h4 {
+    font-size: 16px;
+    font-weight: normal;
+    color: steelblue;
+    margin-bottom: 12px;
+}
+
+/* Effetti di caricamento */
+.js-loading .weather-icon {
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.js-loading .panel {
+    opacity: 0;
+    transform: scale(0);
+}

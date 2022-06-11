@@ -1,0 +1,11 @@
+{
+    "shortname": "Memeteo",
+    "name": "Lama Memeteo",
+    "icons": [{
+        "src" : "./images/meteo.jpg",
+        "type": "image/png",
+        "sizes": "192x192"
+    }],
+    "theme_color": "#000000",
+    "display": "fullscreen"
+}
