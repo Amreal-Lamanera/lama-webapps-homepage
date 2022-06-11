@@ -1,3 +1,5 @@
+screen.orientation.lock('landscape');
+
 const keyElements = document.querySelectorAll('.key');
 
 
