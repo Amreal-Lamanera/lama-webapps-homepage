@@ -1,5 +1,4 @@
-var myScreenOrientation = window.screen.orientation;
-myScreenOrientation.lock("portrait");
+window.alert(window.screen.orientation);
 
 
 
