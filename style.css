@@ -14,7 +14,7 @@ img {
 
 /* Colore Sfondo */
 body {
-    background: linear-gradient(rgb(0, 0, 116) , rgb(70, 70, 245));
+    background: linear-gradient(#000074 , #4646f5);
     background-attachment: fixed;
 }
 
