@@ -8,7 +8,7 @@ function myFunction(x) {
 
 const mediaQuery = window.matchMedia("(min-width: 480px)")
 
-while (!mediaQuery.matches) { // If media query matches
+if (!mediaQuery.matches) { // If media query matches
     window.alert("Devi utilizzare il telefono in orizzontale per questa applicazione!");
 }
 
