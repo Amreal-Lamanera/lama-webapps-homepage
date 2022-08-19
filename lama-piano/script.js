@@ -1,4 +1,6 @@
-window.alert("Utilizza il telefono in orizzontale per un risultato migliore!");
+window.alert("Utilizza il telefono in orizzontale per un risultato migliore prova!");
+
+screen.orientation.lock("landscape");
 
 const keyElements = document.querySelectorAll('.key');
 
