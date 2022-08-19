@@ -1,6 +1,14 @@
 window.alert("Utilizza il telefono in orizzontale per un risultato migliore prova!");
 
-screen.orientation.lock("landscape");
+function myFunction(x) {
+    while (x.matches) { // If media query matches
+        window.alert("Devi utilizzare il telefono in orizzontale per questa applicazione!");
+    }
+}
+
+const mediaQuery = window.matchMedia("(max-width: 480px)")
+myFunction(mediaQuery) // Call listener function at run time
+// mediaQuery.addEventListener(myFunction) // Attach listener function on state changes
 
 const keyElements = document.querySelectorAll('.key');
 
