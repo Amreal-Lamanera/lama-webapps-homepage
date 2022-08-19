@@ -1,4 +1,4 @@
-window.alert("Utilizza il telefono in orizzontale per un risultato migliore prova!");
+// window.alert("Utilizza il telefono in orizzontale per un risultato migliore prova!");
 
 function myFunction(x) {
     while (x.matches) { // If media query matches
