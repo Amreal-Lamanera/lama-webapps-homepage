@@ -13,6 +13,19 @@ img {
     margin-bottom: 1rem;
 }
 
+a:hover p {
+    color: white;
+}
+
+a:hover span {
+    color: #33baf3;
+}
+
+a:hover span,
+a:hover p {
+    text-decoration: underline;
+}
+
 /* Colore Sfondo */
 body {
     background: linear-gradient(#000074, #4646f5);
@@ -58,7 +71,6 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: center;
 }
 
 /* Stile dei link/a */
@@ -73,7 +85,6 @@ h1 {
 /* Le immagini usate come link devono riempire tutto lo spazio dato ai link/a */
 .app-container a img {
     width: 100%;
-    vertical-align: bottom;
 }
 
 .app-container a p {
@@ -83,5 +94,15 @@ h1 {
 #smile {
     background: linear-gradient(rgb(70, 70, 70), #000000);
     padding: 0.75rem;
+    border-radius: 1.5rem;
+}
+
+#world {
+    background: linear-gradient(rgb(238, 238, 238), #a7a7a7);
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+}
+
+#elden {
     border-radius: 1.5rem;
 }
