@@ -10,11 +10,12 @@
 
 img {
     max-width: 100%;
+    margin-bottom: 1rem;
 }
 
 /* Colore Sfondo */
 body {
-    background: linear-gradient(#000074 , #4646f5);
+    background: linear-gradient(#000074, #4646f5);
     background-attachment: fixed;
 }
 
@@ -43,7 +44,12 @@ header img {
     /* Height è implicita in realtà */
     height: auto;
 }
+
 /* FINE Logo */
+
+h1 {
+    color: rgb(199, 150, 38);
+}
 
 /* Contenitore dei link alle app */
 .app-container {
@@ -72,4 +78,10 @@ header img {
 
 .app-container a p {
     font-size: 1em;
+}
+
+#smile {
+    background: linear-gradient(rgb(70, 70, 70), #000000);
+    padding: 0.75rem;
+    border-radius: 1.5rem;
 }
