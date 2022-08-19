@@ -6,9 +6,11 @@ function myFunction(x) {
     }
 }
 
-const mediaQuery = window.matchMedia("(max-width: 480px)")
-myFunction(mediaQuery) // Call listener function at run time
-// mediaQuery.addEventListener(myFunction) // Attach listener function on state changes
+const mediaQuery = window.matchMedia("(min-width: 480px)")
+
+while (!mediaQuery.matches) { // If media query matches
+    window.alert("Devi utilizzare il telefono in orizzontale per questa applicazione!");
+}
 
 const keyElements = document.querySelectorAll('.key');
 
