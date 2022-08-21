@@ -35,12 +35,6 @@ body {
     background-attachment: fixed;
 }
 
-.container {
-    width: 90%;
-    margin: 0 auto;
-    /* padding: 16px; */
-}
-
 /* INIZIO Logo */
 header a {
     display: flex;
@@ -62,18 +56,24 @@ header img {
 }
 
 /* FINE Logo */
+section {
+    margin-bottom: 2rem;
+}
 
 h1 {
+    color: rgb(199, 150, 38);
+    padding-bottom: 2rem;
+}
+
+h2 {
     color: rgb(199, 150, 38);
 }
 
 /* Contenitore dei link alle app */
 .app-container {
-    /* margin-top: 80px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
 /* Stile dei link/a */
