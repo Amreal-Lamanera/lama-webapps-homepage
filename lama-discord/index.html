@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="it">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Discord Mockup</title>
+
+        <!-- style -->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- icon -->
+        <link rel="icon" href="img/discord-icon.svg" />
+
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+
+    </head>
+
+    <!-- TODO: rimuovere debug a progetto finito -->
+
+    <body>
+
+        <header class="main-header">
+            <nav class="container">
+                <div class="row">
+                    <div class="main-header__logo">
+                        <a href="../index.html">
+                            <img class="main__logo__img" src="img/logo.svg" alt="Logo">
+                        </a>
+
+                    </div>
+
+                    <div class="main-header__list">
+
+                        <ul class="row">
+                            <li><a href="#">Scarica</a></li>
+                            <li><a href="#">Perché Discord</a></li>
+                            <li><a href="#">Nitro</a></li>
+                            <li><a href="#">Sicurezza</a></li>
+                            <li><a href="#">Assistenza</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="main-header__login">
+                        <button class="button button--white">
+                            Accedi
+                        </button>
+                    </div>
+                </div>
+
+            </nav>
+        </header>
+
+        <main class="main-main">
+            <!-- TODO: sostituire div con section se il contenuto sarà semanticamente corretto -->
+            <section class="hero">
+                <div class="container tighter">
+                    <div class="row">
+                        <div class="col-100">
+                            <!-- Prendo le scritte direttamente dal sito per poter fare copia-incolla :P -->
+                            <h1 class="hero_title">immagina uno spazio...</h1>
+
+                            <p class="hero__paragraph">
+                                ... dove far parte di un club scolastico, un gruppo di gamer, una community artistica
+                                mondiale o dove trascorrere tempo assieme a un piccolo gruppo di amici: uno spazio in
+                                cui è più facile chiacchierare ogni giorno e ritrovarsi più spesso.
+                            </p>
+
+                            <div class="hero__buttons">
+
+                                <div class="row">
+
+                                    <button class="button button--white button--download">
+                                        <i class="fa-solid fa-download"></i>
+                                        <span>
+                                            Scarica per Windows
+                                        </span>
+                                    </button>
+
+                                    <button class="button button--black button--download">Apri Discord nel tuo
+                                        browser</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="main-main__grid">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-60">
+                            <img src="img/item1.svg" alt="Discord Image 1">
+                        </div>
+
+                        <div class="col-40 ">
+                            <h2 class="main__grid__title">
+                                Crea uno spazio
+                                su invito in cui
+                                sentirti partecipe
+                            </h2>
+
+                            <p class="main__grid__paragraph">
+                                I server Discord sono organizzati in canali tematici in cui puoi collaborare,
+                                condividere o semplicemente parlare della tua giornata senza intasare una chat di
+                                gruppo.
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <div class="wave">
+                <svg style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 100" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+                            <stop stop-color="rgba(246, 246, 246, 1)" offset="0%"></stop>
+                            <stop stop-color="rgba(246, 246, 246, 1)" offset="100%"></stop>
+                        </linearGradient>
+                    </defs>
+                    <path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)"
+                        d="M0,0L34.3,0C68.6,0,137,0,206,8.3C274.3,17,343,33,411,38.3C480,43,549,37,617,30C685.7,23,754,17,823,18.3C891.4,20,960,30,1029,28.3C1097.1,27,1166,13,1234,13.3C1302.9,13,1371,27,1440,26.7C1508.6,27,1577,13,1646,15C1714.3,17,1783,33,1851,46.7C1920,60,1989,70,2057,76.7C2125.7,83,2194,87,2263,73.3C2331.4,60,2400,30,2469,30C2537.1,30,2606,60,2674,73.3C2742.9,87,2811,83,2880,73.3C2948.6,63,3017,47,3086,33.3C3154.3,20,3223,10,3291,8.3C3360,7,3429,13,3497,13.3C3565.7,13,3634,7,3703,15C3771.4,23,3840,47,3909,60C3977.1,73,4046,77,4114,68.3C4182.9,60,4251,40,4320,41.7C4388.6,43,4457,67,4526,63.3C4594.3,60,4663,30,4731,28.3C4800,27,4869,53,4903,66.7L4937.1,80L4937.1,100L4902.9,100C4868.6,100,4800,100,4731,100C4662.9,100,4594,100,4526,100C4457.1,100,4389,100,4320,100C4251.4,100,4183,100,4114,100C4045.7,100,3977,100,3909,100C3840,100,3771,100,3703,100C3634.3,100,3566,100,3497,100C3428.6,100,3360,100,3291,100C3222.9,100,3154,100,3086,100C3017.1,100,2949,100,2880,100C2811.4,100,2743,100,2674,100C2605.7,100,2537,100,2469,100C2400,100,2331,100,2263,100C2194.3,100,2126,100,2057,100C1988.6,100,1920,100,1851,100C1782.9,100,1714,100,1646,100C1577.1,100,1509,100,1440,100C1371.4,100,1303,100,1234,100C1165.7,100,1097,100,1029,100C960,100,891,100,823,100C754.3,100,686,100,617,100C548.6,100,480,100,411,100C342.9,100,274,100,206,100C137.1,100,69,100,34,100L0,100Z">
+                    </path>
+                </svg>
+            </div>
+
+            <section class="main-main__grid grey-BG">
+                <div class="container">
+
+                    <div class="row row-reverse">
+
+                        <div class="col-60">
+                            <img src="img/item2.svg" alt="Discord Image 2">
+                        </div>
+
+                        <div class="col-40 ">
+
+                            <h2 class="main__grid__title">
+                                Dove trovarsi è facile
+                            </h2>
+
+                            <p class="main__grid__paragraph">
+                                Mettiti comodo in un canale vocale quando hai tempo. Gli amici nel tuo server possono
+                                vedere che sei lì e unirsi istantaneamente senza dover chiamare.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="wave">
+                <svg style="transform:rotate(180deg); transition: 0.3s" viewBox="0 0 1440 100" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)"
+                        d="M0,0L34.3,0C68.6,0,137,0,206,8.3C274.3,17,343,33,411,38.3C480,43,549,37,617,30C685.7,23,754,17,823,18.3C891.4,20,960,30,1029,28.3C1097.1,27,1166,13,1234,13.3C1302.9,13,1371,27,1440,26.7C1508.6,27,1577,13,1646,15C1714.3,17,1783,33,1851,46.7C1920,60,1989,70,2057,76.7C2125.7,83,2194,87,2263,73.3C2331.4,60,2400,30,2469,30C2537.1,30,2606,60,2674,73.3C2742.9,87,2811,83,2880,73.3C2948.6,63,3017,47,3086,33.3C3154.3,20,3223,10,3291,8.3C3360,7,3429,13,3497,13.3C3565.7,13,3634,7,3703,15C3771.4,23,3840,47,3909,60C3977.1,73,4046,77,4114,68.3C4182.9,60,4251,40,4320,41.7C4388.6,43,4457,67,4526,63.3C4594.3,60,4663,30,4731,28.3C4800,27,4869,53,4903,66.7L4937.1,80L4937.1,100L4902.9,100C4868.6,100,4800,100,4731,100C4662.9,100,4594,100,4526,100C4457.1,100,4389,100,4320,100C4251.4,100,4183,100,4114,100C4045.7,100,3977,100,3909,100C3840,100,3771,100,3703,100C3634.3,100,3566,100,3497,100C3428.6,100,3360,100,3291,100C3222.9,100,3154,100,3086,100C3017.1,100,2949,100,2880,100C2811.4,100,2743,100,2674,100C2605.7,100,2537,100,2469,100C2400,100,2331,100,2263,100C2194.3,100,2126,100,2057,100C1988.6,100,1920,100,1851,100C1782.9,100,1714,100,1646,100C1577.1,100,1509,100,1440,100C1371.4,100,1303,100,1234,100C1165.7,100,1097,100,1029,100C960,100,891,100,823,100C754.3,100,686,100,617,100C548.6,100,480,100,411,100C342.9,100,274,100,206,100C137.1,100,69,100,34,100L0,100Z">
+                    </path>
+                </svg>
+            </div>
+
+            <section class="main-main__grid">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-60">
+                            <img src="img/item3.svg" alt="Discord Image 3">
+                        </div>
+
+                        <div class="col-40 ">
+
+                            <h2 class="main__grid__title">
+                                Da pochi a un fandom
+                            </h2>
+
+                            <p class="main__grid__paragraph">
+                                Dai inizio a una community con strumenti di moderazione e accesso ai membri
+                                personalizzabile. Concedi ai membri poteri speciali, crea canali privati e molto altro.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="wave">
+                <svg style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 100" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)"
+                        d="M0,0L34.3,0C68.6,0,137,0,206,8.3C274.3,17,343,33,411,38.3C480,43,549,37,617,30C685.7,23,754,17,823,18.3C891.4,20,960,30,1029,28.3C1097.1,27,1166,13,1234,13.3C1302.9,13,1371,27,1440,26.7C1508.6,27,1577,13,1646,15C1714.3,17,1783,33,1851,46.7C1920,60,1989,70,2057,76.7C2125.7,83,2194,87,2263,73.3C2331.4,60,2400,30,2469,30C2537.1,30,2606,60,2674,73.3C2742.9,87,2811,83,2880,73.3C2948.6,63,3017,47,3086,33.3C3154.3,20,3223,10,3291,8.3C3360,7,3429,13,3497,13.3C3565.7,13,3634,7,3703,15C3771.4,23,3840,47,3909,60C3977.1,73,4046,77,4114,68.3C4182.9,60,4251,40,4320,41.7C4388.6,43,4457,67,4526,63.3C4594.3,60,4663,30,4731,28.3C4800,27,4869,53,4903,66.7L4937.1,80L4937.1,100L4902.9,100C4868.6,100,4800,100,4731,100C4662.9,100,4594,100,4526,100C4457.1,100,4389,100,4320,100C4251.4,100,4183,100,4114,100C4045.7,100,3977,100,3909,100C3840,100,3771,100,3703,100C3634.3,100,3566,100,3497,100C3428.6,100,3360,100,3291,100C3222.9,100,3154,100,3086,100C3017.1,100,2949,100,2880,100C2811.4,100,2743,100,2674,100C2605.7,100,2537,100,2469,100C2400,100,2331,100,2263,100C2194.3,100,2126,100,2057,100C1988.6,100,1920,100,1851,100C1782.9,100,1714,100,1646,100C1577.1,100,1509,100,1440,100C1371.4,100,1303,100,1234,100C1165.7,100,1097,100,1029,100C960,100,891,100,823,100C754.3,100,686,100,617,100C548.6,100,480,100,411,100C342.9,100,274,100,206,100C137.1,100,69,100,34,100L0,100Z">
+                    </path>
+                </svg>
+            </div>
+
+            <section class="main-main__grid grey-BG centered">
+                <div class="container">
+
+                    <!-- Di norma si utilizza un'unica colonna anche se non servirebbe -->
+                    <div class="row">
+
+                        <div class="col-100">
+
+                            <div class="main__grid__txt">
+
+                                <h2 class="main__grid__title">
+                                    tecnologia affidabile per tenersi in contatto
+                                </h2>
+
+                                <p class="main__grid__paragraph">
+                                    Dai inizio a una community con strumenti di moderazione e accesso ai membri
+                                    personalizzabile. Concedi ai membri poteri speciali, crea canali privati e molto
+                                    altro.
+                                </p>
+
+                            </div>
+
+                            <img src="img/item4-big.svg" alt="Discord Image 4">
+
+                            <p class="main__grid__ready">
+                                Pronto a iniziare la tua avventura?
+                            </p>
+
+                            <button class="button button--blue">
+                                <i class="fa-solid fa-download"></i>
+                                Scarica per Windows
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="main-footer">
+
+            <div class="footer__firstContainer">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+
+                            <h3 class="main-footer__title main-title">Il tuo posto per parlare</h3>
+
+                            <img class="main-footer__ita" src="img/ita.png" alt="Bandiera Italiana">
+
+                            <span class="main-footer__lang">Italiano <i class="fa-solid fa-angle-down"></i></span>
+
+                            <ul class="main-footer__social row">
+
+                                <li><i class="fa-brands fa-twitter"></i></li>
+                                <li><i class="fa-brands fa-instagram"></i></li>
+                                <li><i class="fa-brands fa-facebook-square"></i></li>
+                                <li><i class="fa-brands fa-youtube"></i></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="col-2">
+
+                            <h3 class="main-footer__title">Prodotto</h3>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Scarica
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Perché Discord
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Nitro
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Sicurezza
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Assistenza
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <h3 class="main-footer__title">Compagnia</h3>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Chi siamo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Lavora con noi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Marchiio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Redazione
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Negozio
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <h3 class="main-footer__title">Risorse</h3>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Università
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Assistenza
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Sicurezza
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Blog
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Suggerimenti
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Sviluppatori
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        StreamKit
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="col-2">
+
+                            <h3 class="main-footer__title">Norme</h3>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Termini
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Impostazioni cookie
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Linee guida
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Riconoscimenti
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Licenze
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Moderazione
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="footer__secondContainer">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="main-footer__logo">
+                            <a href="#">
+                                <img src="img/logo.svg" alt="Logo">
+                            </a>
+                        </div>
+
+                        <div class="main-footer__button">
+                            <button class="button button--blue" onclick="window.alert('FUNZIONA!')">Registrati</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- Fontawesome kit -->
+        <script src="https://kit.fontawesome.com/b0485a66c8.js" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>
+
+<!-- Validato su https://validator.w3.org/ - Document checking completed. No errors or warnings to show. -->
