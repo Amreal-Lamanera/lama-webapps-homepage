@@ -17,6 +17,43 @@ body {
     /* overflow: hidden; */
 }
 
+/* INIZIO Logo */
+header {
+    position: absolute;
+    top: 0;
+    left: 5vw;
+}
+
+header a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2em;
+    color: #33baf3;
+    font-style: oblique;
+    font-weight: bolder;
+    text-decoration: none;
+    width: 150px;
+}
+
+header a:hover {
+    color: #33baf3;
+    text-decoration: underline;
+}
+
+header img {
+    margin-bottom: 15px;
+    width: 56px;
+    /* Height è implicita in realtà */
+    height: auto;
+}
+
+/* FINE Logo */
+
+.my_container:first-of-type {
+    padding-top: 10vh;
+}
+
 ul {
     list-style: none;
     padding: 0;
@@ -24,8 +61,8 @@ ul {
 }
 
 li.slide {
-    width: 95vw;
-    height: 80vh;
+    width: 90vw;
+    height: 70vh;
 }
 
 .slider {

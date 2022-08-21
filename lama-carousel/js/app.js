@@ -44,7 +44,7 @@ let indexAct = 0;
 let intervalDir = 0;
 
 const wrapperElement = document.querySelector('.slides-wrapper');
-const sliderElement = document.querySelectorAll('.container-fluid')[0];
+const sliderElement = document.querySelectorAll('.my_container')[0];
 
 // eventi di stop/restart dello scorrimento automatico
 sliderElement.addEventListener('mouseover', stopInterval);
@@ -100,7 +100,6 @@ for (let i = 0; i < slides.length; i++) {
     tDiv.style.backgroundImage = `url(${src})`;
     tDiv.style.backgroundSize = 'cover';
     tDiv.style.backgroundPosition = 'center';
-    console.dir(tDiv.style)
     thumbnailElement.append(tDiv);
     thumbnailContainer.push(tDiv);
 
@@ -146,47 +145,18 @@ for (let i = 0; i < slides.length; i++) {
     // mi salvo tutte le slide in un array
     slideElements.push(li);
 }
-// console.log(slideElements);
-
-// implementare i pointer
-// const pointersWrapperElement = document.querySelector('.pointers-wrapper');
-// const pointersContainer = [];
-
-// for (let i = 0; i < slideElements.length; i++) {
-//     let pointer;
-//     pointer = document.createElement('li');
-//     pointer.className = 'pointer';
-//     // pointer.id = i;
-
-//     if (i === indexAct) {
-//         pointer.classList.add('active');
-//     }
-
-//     pointer.addEventListener('click', goTo.bind(pointer, i));
-
-//     pointersWrapperElement.append(pointer);
-//     pointersContainer.push(pointer);
-// };
 
 // implementare freccia right
 const nextElement = document.querySelector('.arrow-next');
 
 nextElement.addEventListener('click', nextFun);
-// nextElement.addEventListener('mouseenter', stopInterval);
-// nextElement.addEventListener('mouseleave', restartInterval);
 
 // implementare freccia left
 const prevElement = document.querySelector('.arrow-prev');
 prevElement.addEventListener('click', prevFun);
-// prevElement.addEventListener('mouseenter', stopInterval);
-// prevElement.addEventListener('mouseleave', restartInterval);
 
 function goTo(i) {
-    // se muovo slider resetto timer e lo faccio ripartire
-    // resetInterval();
-
     // togliere active dal pointer attivo
-    // console.log(i);
     thumbnailContainer[indexAct].classList.remove('active');
     // togliere active dalla slide attiva
     slideElements[indexAct].classList.remove('active');

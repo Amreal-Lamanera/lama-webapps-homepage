@@ -17,6 +17,39 @@ ul {
     padding: 0;
 }
 
+/* INIZIO Logo */
+header {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+
+header a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2em;
+    color: #33baf3;
+    font-style: oblique;
+    font-weight: bolder;
+    text-decoration: none;
+    width: 150px;
+}
+
+header a:hover {
+    color: #33baf3;
+    text-decoration: underline;
+}
+
+header img {
+    margin-bottom: 15px;
+    width: 56px;
+    /* Height è implicita in realtà */
+    height: auto;
+}
+
+/* FINE Logo */
+
 .slider {
     position: relative;
 }

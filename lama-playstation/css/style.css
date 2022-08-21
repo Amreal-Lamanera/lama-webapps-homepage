@@ -1,0 +1,448 @@
+/********************************
+    UTILITY CLASSES
+*********************************/
+
+/* #region UTILITY */
+
+:root {
+    --ps-blue: #0070D1;
+    --blue: #00439C;
+    --orange: #CD3D0F;
+    --dark: #1F1F1F;
+    --grey: #BEBCBB;
+    --btn-grey: #D9DADC;
+    --dark-blue: #161C3B;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.my-fw_medium {
+    font-weight: 500;
+}
+
+.my-fs_tm {
+    font-size: 0.5rem;
+}
+
+.ps5 p,
+.ps4 p {
+    font-size: 1.15rem;
+}
+
+.title_fs {
+    font-size: 2rem;
+}
+
+.sub-title_fs {
+    font-size: 1.75rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+.my-bg__orange {
+    background-color: var(--orange);
+}
+
+.my-bg__p-blue {
+    background-color: var(--ps-blue);
+}
+
+.my-bg__blue {
+    background-color: var(--blue);
+}
+
+.my-bg__dark {
+    background-color: var(--dark);
+}
+
+.my-bg__grey {
+    background-color: var(--grey);
+}
+
+.my-bg__ntn_grey {
+    background-color: var(--btn-grey);
+}
+
+.my-bg__dark-blue {
+    background-color: var(--dark-blue);
+}
+
+.my-color__blue {
+    color: var(--ps-blue);
+}
+
+.my_rounded {
+    border-radius: 1.5rem;
+}
+
+.carousel {
+    background-size: cover;
+    background-position: top;
+    height: 600px;
+}
+
+.my_btn {
+    position: relative;
+    display: inline-block;
+}
+
+.my_btn a::before {
+    content: '';
+    border-radius: 1.5rem;
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    right: -6px;
+    left: -6px;
+    transition: all 200ms ease-in-out;
+}
+
+.r_special {
+    font-size: 1rem;
+    vertical-align: text-top;
+}
+
+.ps__card {
+    height: 300px;
+}
+
+@media (min-width: 768px) {
+
+    .ps__card {
+        height: 100%;
+    }
+
+}
+
+/* #endregion */
+
+/********************************
+    HEADER
+*********************************/
+
+/* #region HEADER */
+
+/* #region BONUS */
+
+#my-navbar_dropdown .nav-item {
+    position: static;
+}
+
+#my-navbar_dropdown .dropdown-menu {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+}
+
+#my-navbar_dropdown .dropdown-menu.show {
+    display: flex;
+}
+
+#my-navbar_dropdown .dropdown-item {
+    padding: 0.5rem 3rem;
+}
+
+#my-navbar_dropdown .dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
+#my-navbar_dropdown .my_card:hover {
+    border-radius: 0.25rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* #endregion */
+
+.main-header .sony-logo img {
+    width: 5.25rem;
+}
+
+.main-header {
+    display: contents;
+}
+
+.main-header .main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #FFF;
+}
+
+.main-header .btn {
+    transition: all 200ms ease-in-out;
+}
+
+.main-header .btn:hover {
+    opacity: 0.5;
+}
+
+.my_toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-nav .my_toggle::after {
+    border: solid rgba(0, 0, 0, 0.5);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+}
+
+.main-nav .my_toggle.show::after {
+    transform: rotate(225deg);
+}
+
+.main-nav .navbar-collapse::before {
+    content: '';
+    border-top: 1px solid var(--ps-blue);
+    margin: 1rem 0;
+    display: block;
+}
+
+/* #endregion */
+
+/********************************
+    MAIN
+*********************************/
+
+/* #region MAIN */
+
+/********************************
+    HERO
+*********************************/
+
+/* #region HERO */
+
+/* .hero .carousel {
+    background-image: url('../img/jumbo-bg.png');
+}
+
+.hero .my_btn a:hover::before {
+    border: 2px solid var(--orange);
+}
+
+.hero .my_card img {
+    transition: all 200ms;
+    width: calc(100%-2px);
+}
+
+.hero .my_card .layover {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.623);
+    position: absolute;
+    border-radius: 1.5rem;
+    top: -4px;
+    right: calc(0.75rem - 4px);
+    bottom: -4px;
+    left: calc(0.75rem - 4px);
+    transition: all 300ms ease-in-out;
+}
+
+.hero .my_card.active .layover,
+.hero .my_card:hover .layover {
+    border: 2px solid var(--ps-blue);
+    background-color: transparent;
+} */
+
+.carousel-item:nth-child(1) {
+    height: 500px;
+    background-image: url(../img/ret.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.carousel-item:nth-child(2) {
+    height: 500px;
+    background-image: url(../img/mwmob.jpg);
+    background-position: 0 85%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.carousel-item:nth-child(3) {
+    height: 500px;
+    background-image: url(../img/elden-ring-pc-gioco-steam-europe-cover.webp);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+    .carousel-item:nth-child(3) {
+        background-image: url(../img/er.jpg);
+    }
+
+    .carousel-item:nth-child(2) {
+        background-image: url(../img/mw.jpg);
+        background-position: 90% 0;
+    }
+}
+
+@media screen and (min-width: 576px) {}
+
+#my_carousel {
+    height: auto;
+}
+
+#my_indicators {
+    position: static;
+    margin: 1rem 0;
+}
+
+#my_indicators.carousel-indicators [data-bs-target] {
+    width: auto;
+    height: auto;
+    margin: 0;
+    text-indent: 0;
+}
+
+#my_indicators button {
+    background-color: #1F1F1F;
+}
+
+#my-inner {
+    /* aspect-ratio: 1; */
+}
+
+
+/* #endregion */
+
+/********************************
+    PS5
+*********************************/
+
+/* #region PS5 */
+
+.ps5 {
+    padding: 2.125rem 0;
+}
+
+.ps5 .my_btn a:hover::before {
+    border: 2px solid var(--ps-blue);
+}
+
+.ps5 .my_card:not([class*="active"]) {
+    opacity: 0.5;
+}
+
+.ps5 .my_card:hover {
+    opacity: 1;
+}
+
+.ps5 .my_card.active .layover,
+.ps5 .my_card:hover .layover {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    height: 2px;
+    display: block;
+    background-color: var(--ps-blue);
+    width: calc(100% - 3rem);
+}
+
+/* #endregion */
+
+
+/********************************
+    NEWS
+*********************************/
+
+/* #region NEWS */
+
+.news .carousel {
+    background-image: url('../img/it-takes-two-hero-banner-desktop.jpg');
+}
+
+.news .carousel img {
+    max-width: 450px;
+}
+
+.news .my_btn a:hover::before {
+    border: 2px solid var(--orange);
+}
+
+.news .my_rounded {
+    border-radius: 2.5rem;
+}
+
+/* #endregion */
+
+
+/********************************
+    PS4
+*********************************/
+
+/* #region PS4 */
+
+.ps4 .my_btn a:hover::before {
+    border: 2px solid var(--ps-blue);
+}
+
+/* #endregion */
+
+/********************************
+    PS-PLUS
+*********************************/
+
+/* #region PS-PLUS */
+
+.ps-plus .my_btn a:hover::before {
+    border: 2px solid var(--btn-grey);
+}
+
+.ps-plus .btn:hover {
+    color: var(--ps-blue);
+}
+
+/* #endregion */
+
+/********************************
+    SALES
+*********************************/
+
+/* #region SALES */
+
+
+/* #endregion */
+
+/********************************
+    PS-now
+*********************************/
+
+/* #region PS-now */
+
+.ps-now .my_btn a:hover::before {
+    border: 2px solid var(--btn-grey);
+}
+
+/* #endregion */
+
+/* #endregion */
+
+/********************************
+    FOOTER
+*********************************/
+
+/* #region FOOTER */
+
+
+
+/* #endregion */
+
+/********************************
+    TODO: DEBUG
+*********************************/
+
+/* #region UTILITY */
+
+
+
+/* #endregion */

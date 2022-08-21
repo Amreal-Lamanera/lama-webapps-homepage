@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Spotify Mockup</title>
+
+        <!-- Reset Style css -->
+        <link rel="stylesheet" href="css/reset.css">
+
+        <!-- Style css -->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+        <!-- Icon -->
+        <link rel="icon" href="img/spotify-icon.png">
+
+        <!-- MANIFEST -->
+        <link rel="manifest" href="site.webmanifest.json">
+
+    </head>
+
+    <!-- TODO: Debug class -->
+
+    <body class="flex flex-col">
+
+        <!-- MAIN - CONTAINER -->
+        <div class="main-container flex">
+
+            <!-- HEADER - SIDEBAR -->
+            <header class="sidebar col no-shrink flex flex-col">
+
+                <!-- SOLUZIONE POCO FLESSIBILE: era meglio gestire una sidebar non divisa in 2, ma farci direttamente 3/4 div in column con la div playlist con grow oppure la div del profilo con margin top auto -->
+
+                <!-- SIDEBAR CONTENT -->
+                <nav class="sidebar-content flex flex-col">
+
+                    <!-- <div class="sidebar-content__container flex flex-col"> -->
+
+                    <!-- SIDEBAR CONTENT - HEAD -->
+                    <ul class="sidebar-head flex flex-col">
+
+                        <li>
+                            <a href="../index.html">
+                                <img src="img/logo.svg" alt="spotify logo" id="logo__large">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../index.html">
+                                <img src="img/logo-small.svg" alt="spotify logo" id="logo">
+                            </a>
+                        </li>
+
+                        <li class="active">
+                            <a href="#">
+                                <img src="img/home.svg" alt="spotify icon">
+                                <span>Home</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="img/search.svg" alt="spotify icon">
+                                <span>Cerca</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="img/libreria.svg" alt="spotify icon">
+                                <span>La tua libreria</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /SIDEBAR HEAD -->
+
+                    <!-- SIDEBAR CONTENT - BODY -->
+                    <nav class="sidebar-body">
+
+                        <h3 class="sidebar-body__title">PLAYLIST</h3>
+                        <div class="add__playlist flex items-center">
+                            <a href="#">
+                                <i class="fa-solid fa-square-plus playlist__btn"></i>
+                            </a>
+                            <span>Crea Playlist</span>
+                        </div>
+
+                        <ul class="flex flex-col">
+                            <li>
+                                <a href="#">
+                                    <span>
+                                        Nome Playlist
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>
+                                        Super playlist con nome lunghissimo e bellissimo per vedere che la sidebar
+                                        non
+                                        si allarga mai oltre una misura predefinita
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>
+                                        Nome Playlist
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>
+                                        Nome Playlist
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>
+                                        Nome Playlist
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>
+                                        Nome Playlist
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>
+                                        Nome Playlist
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>
+                                        Nome Playlist
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <!-- /SIDEBAR BODY -->
+
+                    <!-- </div> -->
+
+                    <!-- SIDEBAR CONTENT - FOOTER -->
+                    <nav class="sidebar-footer flex flex-col">
+
+                        <div class="download flex items-center">
+                            <div class="container-arrow flex justify-center items-center">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </div>
+                            <span>Installa app</span>
+                        </div>
+
+                        <figure class="sidebar__profile">
+                            <img src="img/profile.svg" alt="">
+                            <figcaption>John Doe</figcaption>
+                        </figure>
+                    </nav>
+                    <!-- /SIDEBAR FOOTER -->
+
+                </nav>
+                <!-- /SIDEBAR CONTENT -->
+
+            </header>
+            <!-- /HEADER - SIDEBAR -->
+
+            <!-- MAIN -->
+            <main class="main-main col-grow flex flex-col">
+
+                <!-- UPGRADE SECTION -->
+                <div class="upgrade col flex">
+
+                    <a href="#" class="button">
+                        EFFETTUA L'UPGRADE
+                    </a>
+
+                </div>
+                <!-- /UPGRADE SECTION -->
+
+                <!-- CONTAINER SECTION -->
+                <div class="container col-grow flex flex-col">
+
+                    <!-- CONTAINER NAV -->
+                    <nav class="container-nav col flex justify-center">
+
+                        <ul class="flex nav-list justify-center">
+
+                            <li>
+                                <a href="#" class="active">
+                                    IN EVIDENZA
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    PODCAST
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    CLASSIFICHE
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    GENERI E MOOD
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    NUOVE USCITE
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    SCOPRI
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+                    <!-- /CONTAINER NAV -->
+
+                    <!-- CONTAINER - CONTENT -->
+                    <div class="container-content col-grow">
+
+                        <div class="recently">
+
+                            <h3 class="content__title"> Recently played</h3>
+
+                            <div class="row container-grid grid">
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/metal_lifting.jpg" alt="Heavy Metal img">
+                                        <div class="layover items-center justify-center">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">Heavy Metal</h4>
+                                    <h5 class="content__subtitle">Subtitle</h5>
+                                </div>
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/stranger.jpeg" alt="Stranger Things img">
+                                        <div class="layover items-center justify-center">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">Stranger Things, Vol.1 (a Netflix Original Series Soundtrack
+                                    </h4>
+                                    <h5 class="content__subtitle">Kyle Dixon & Michael Stein</h5>
+                                </div>
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/aquietplace.jpeg" alt="A quiet place img">
+                                        <div class="layover items-center justify-center">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">A quiet place</h4>
+                                    <h5 class="content__subtitle">Subtitle</h5>
+                                </div>
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/split.jpeg" alt="Heavy Metal img">
+                                        <div class="layover items-center justify-center">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">Split</h4>
+                                    <h5 class="content__subtitle">Subtitle</h5>
+                                </div>
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/cure.jpeg" alt="A cure of wellness img">
+                                        <div class="layover items-center justify-center">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">A cure of wellness</h4>
+                                    <h5 class="content__subtitle">Subtitle</h5>
+                                </div>
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/sinister.jpeg" alt="Heavy Metal img">
+                                        <div class="layover items-center justify-center">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">Sinister</h4>
+                                    <h5 class="content__subtitle">Subtitle</h5>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="for-you">
+
+                            <h3 class="content__title"> Creato per John Doe</h3>
+                            <h5 class="content__subtitle">Più ascolti, più accurati saranno i suggerimenti.</h5>
+
+                            <div class="row container-grid grid">
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/radar.jpeg" alt="Release radar img">
+                                        <div class="layover items-center justify-center">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">Release Radar</h4>
+                                </div>
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/mixdaily.jpeg" alt="Daily mix 1 img">
+                                        <div class="layover items-center justify-center">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">Daily Mix 1
+                                    </h4>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="popular">
+                            <h3 class="content__title"> Artisti più popolari</h3>
+                            <h5 class="content__subtitle">Più ascolti, più accurati saranno i suggerimenti.</h5>
+
+                            <div class="row container-grid grid">
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/youg.jpeg" alt="Lana del Rey img" class="rounded">
+                                        <div class="layover items-center justify-center rounded">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">Lana del Rey</h4>
+                                </div>
+
+                                <div class="col flex content flex-col">
+                                    <div class="layover__container">
+                                        <img src="img/einaudi.jpeg" alt="Stranger Things img" class="rounded">
+                                        <div class="layover items-center justify-center rounded">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="col__title">Stranger Things, Vol.1 (a Netflix Original Series Soundtrack
+                                    </h4>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /CONTAINER - CONTENT -->
+
+                </div>
+                <!-- /CONTAINER SECTION -->
+
+            </main>
+            <!-- /MAIN -->
+
+        </div>
+        <!-- /MAIN - CONTAINER -->
+
+        <!-- ASIDE PLAYER -->
+        <aside class="player flex">
+
+            <div class="col flex song">
+
+                <div class="song__img flex">
+                    <img src="img/sinister.jpeg" alt="">
+                    <div class="song__img__desc flex flex-col">
+                        <strong>Sinister</strong>
+                        <span>Brano</span>
+                        <span>Nome</span>
+                    </div>
+                </div>
+
+                <div class="song__buttons flex flex-col">
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-folder"></i>
+                </div>
+
+            </div>
+
+            <div class="col fake-player flex flex-col justify-center">
+
+                <div class="fake-player__buttons">
+
+                    <ul class="flex justify-center items-center">
+                        <li>
+                            <i class="fa-solid fa-shuffle"></i>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-backward-step"></i>
+                        </li>
+
+                        <li class="big-button flex justify-center items-center">
+                            <i class="fa-regular fa-circle-play"></i>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-forward-step"></i>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-arrow-rotate-right"></i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="fake-player__bar flex justify-center">
+                    <span>0:00</span>
+                    <div class="fake-bar">
+                        <div class="fake-bar__inside">
+                            <div class="fake-bar__dot"></div>
+                        </div>
+                    </div>
+                    <span>4:35</span>
+                </div>
+
+            </div>
+
+            <div class="col flex volume">
+                <i class="fa-solid fa-list"></i>
+                <i class="fa-solid fa-desktop"></i>
+                <i class="fa-solid fa-volume-high"></i>
+                <div class="fake-bar">
+                    <div class="fake-bar__inside">
+                        <div class="fake-bar__dot"></div>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+        <!-- /ASIDE PLAYER -->
+
+
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/b0485a66c8.js" crossorigin="anonymous"></script>
+    </body>
+
+</html>
+
+<!-- W3 Validator: Document checking completed. No errors or warnings to show. -->

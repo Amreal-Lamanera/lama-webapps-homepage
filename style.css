@@ -1,6 +1,9 @@
 /* Utilizzo "Ispeziona elemento" con dimensioni iPhone 12Pro */
 
 /* CSS Reset + Font */
+
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -104,5 +107,31 @@ h1 {
 }
 
 #elden {
+    border-radius: 1.5rem;
+}
+
+#social {
+    background: linear-gradient(rgb(0, 21, 255), rgb(101, 174, 252));
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+    aspect-ratio: 1;
+    font-size: 3rem;
+    font-family: 'DynaPuff', cursive;
+    margin-bottom: 1rem;
+}
+
+a:hover #social {
+    color: #FFF;
+}
+
+#spotify {
+    background-color: #000;
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+}
+
+#play {
+    background-color: #FFF;
+    padding: 0.75rem;
     border-radius: 1.5rem;
 }

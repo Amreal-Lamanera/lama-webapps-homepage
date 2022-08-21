@@ -1,0 +1,676 @@
+/******************************************************
+    REGOLE GENERALI
+*******************************************************/
+
+:root {
+    --dark: #080B12;
+    --main-color: #141922;
+    --grey: #282828;
+    --light-grey: #797C80;
+    --green: #ADFF2F;
+}
+
+body {
+    height: 100vh;
+    min-width: 300px;
+}
+
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-col-reverse {
+    flex-direction: column-reverse;
+}
+
+.no-shrink {
+    flex-shrink: 0;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.active::before {
+    content: '';
+    background-color: var(--green);
+    position: absolute;
+}
+
+.col-grow {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.button {
+    background-color: transparent;
+    border-radius: 80px;
+    color: #FFF;
+    padding: 1em 2em;
+    border: 1px solid currentColor;
+}
+
+.btn__large {
+    padding: 0.5em 3em;
+}
+
+.fake-bar {
+    height: 0.5rem;
+    background-color: #3A3A3A;
+    border-radius: 1rem;
+    align-self: center;
+    cursor: pointer;
+}
+
+.fake-bar__inside {
+    background-color: #C1C1C1;
+    border-radius: 1rem;
+    height: 100%;
+    position: relative;
+}
+
+.fake-bar__dot {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: white;
+    right: -0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+.fake-bar:hover .fake-bar__inside {
+    background-color: var(--green);
+}
+
+.fake-bar:hover .fake-bar__dot {
+    opacity: 1;
+}
+
+/******************************************************
+TOP SITE - MAIN CONTAINER
+*******************************************************/
+
+.main-container {
+    flex-grow: 1;
+}
+
+/******************************************************
+    HEADER - SIDEBAR
+*******************************************************/
+
+.sidebar {
+    background-color: #000;
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 4rem;
+    color: #FFF;
+}
+
+.sidebar ul {
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.sidebar li.active {
+    position: relative;
+    opacity: 0.8;
+}
+
+.sidebar li.active:hover {
+    opacity: 1;
+}
+
+.sidebar li.active::before {
+    display: none;
+    width: 0.125rem;
+    height: 2rem;
+    left: -1rem;
+    top: -0.25rem;
+}
+
+.sidebar li * {
+    vertical-align: middle;
+}
+
+.sidebar li img {
+    width: 1.5rem;
+}
+
+/******************************************************
+    SIDEBAR - CONTENT
+*******************************************************/
+
+/******************************************************
+    SIDEBAR - HEAD
+*******************************************************/
+
+.sidebar .sidebar-head {
+    margin-bottom: 1.75rem;
+}
+
+.sidebar li #logo__large {
+    display: none;
+    width: 40px;
+}
+
+.sidebar .sidebar-head li:nth-child(n + 3):not([class*="active"]) {
+    filter: invert(0.6);
+}
+
+.sidebar .sidebar-head li:hover {
+    filter: none !important;
+}
+
+/******************************************************
+SIDEBAR CONTENT - BODY
+*******************************************************/
+.sidebar-body {
+    flex-grow: 1;
+    flex-basis: 0;
+    overflow: auto;
+}
+
+.sidebar .sidebar-body,
+.sidebar li a span {
+    display: none;
+}
+
+.sidebar .sidebar-body .sidebar-body__title {
+    padding-bottom: 1rem;
+}
+
+.sidebar .sidebar-body .add__playlist {
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+.sidebar .sidebar-body .add__playlist {
+    filter: invert(0.6);
+}
+
+.sidebar .sidebar-body .add__playlist:hover {
+    filter: none !important;
+}
+
+.sidebar .sidebar-body .playlist__btn {
+    padding-right: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.sidebar .sidebar-body li {
+    filter: invert(0.6);
+}
+
+.sidebar .sidebar-body li:hover {
+    filter: none !important;
+}
+
+.sidebar .sidebar-body ul {
+    gap: 1.5rem;
+}
+
+/******************************************************
+    SIDEBAR CONTENT - FOOTER
+*******************************************************/
+
+.sidebar .download {
+    gap: 0.5rem;
+}
+
+.sidebar .download {
+    filter: invert(0.6);
+    font-weight: bold;
+}
+
+.sidebar .download:hover {
+    filter: none !important;
+}
+
+.sidebar .download .container-arrow {
+    margin-bottom: 2rem;
+    border: 1.5px solid #FFF;
+    border-radius: 100%;
+    font-size: 0.5rem;
+    width: 1rem;
+    aspect-ratio: 1;
+    text-align: center;
+}
+
+.sidebar .download span {
+    display: none;
+}
+
+.sidebar .sidebar__profile::before {
+    content: "";
+    border-bottom: 1px solid #666;
+    margin: 1rem 0;
+    width: 12rem;
+    display: none;
+}
+
+.sidebar .sidebar-content {
+    flex-basis: 100%;
+}
+
+.sidebar .sidebar-footer {
+    align-items: center;
+}
+
+.sidebar .sidebar-footer .sidebar__profile * {
+    vertical-align: middle;
+}
+
+.sidebar .sidebar-footer .sidebar__profile figcaption {
+    display: none;
+    padding-left: 0.5rem;
+}
+
+.sidebar .sidebar-footer .sidebar__profile img {
+    background-color: var(--light-grey);
+    border-radius: 50%;
+    width: 2rem;
+    aspect-ratio: 1;
+}
+
+
+
+/******************************************************
+    MAIN - MAIN
+*******************************************************/
+
+.main-main {
+    color: #FFF;
+}
+
+/******************************************************
+    SECTION UPGRADE
+*******************************************************/
+
+.main-container .upgrade {
+    background-color: var(--dark);
+    justify-content: flex-end;
+    padding: 1.5rem 1rem;
+}
+
+.main-container .upgrade .button:hover {
+    transform: scale(1.1);
+}
+
+/******************************************************
+    SECTION - CONTAINER
+*******************************************************/
+
+.main-container .container {
+    background-color: var(--main-color);
+    overflow: auto;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+/******************************************************
+    CONTAINER - NAV
+*******************************************************/
+
+.container .container-nav {
+    color: var(--light-grey);
+    font-weight: bold;
+    padding-top: 1.5rem;
+}
+
+.container-nav .nav-list {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.container-nav .nav-list li {
+    position: relative;
+}
+
+.container-nav .nav-list li:hover {
+    color: #FFF;
+}
+
+.container-nav .nav-list .active::before {
+    height: 0.125rem;
+    width: 2rem;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/******************************************************
+    CONTAINER - CONTENT
+*******************************************************/
+
+.container-content {
+    padding: 0rem 2rem 0 1.25rem;
+}
+
+.container-content .content__title {
+    font-size: 1.5rem;
+    padding-top: 2.5rem;
+}
+
+.content__subtitle {
+    color: var(--light-grey);
+    padding-top: 0.5rem;
+}
+
+.container-content .container-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.container-content .content .layover__container {
+    position: relative;
+}
+
+.container-content .content .layover {
+    display: none;
+}
+
+.container-content .content:hover .layover {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 4rem;
+}
+
+.container-content .col__title {
+    padding-top: 1rem;
+}
+
+.container-content .container-grid img {
+    cursor: pointer;
+}
+
+.container-content .container-grid .rounded {
+    border-radius: 100%;
+}
+
+/******************************************************
+    ASIDE PLAYER
+*******************************************************/
+
+.player {
+    background-color: var(--grey);
+    /* Restringendo in altezza arriverà ad essere l'unico elemento visibile */
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: #FFF;
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+    align-items: center;
+    z-index: 2;
+}
+
+.player .song {
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.player .song__img img {
+    width: 2.75rem;
+}
+
+.player .song__img {
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.player .song__img .song__img__desc span {
+    font-size: 1rem;
+    filter: invert(0.6);
+}
+
+.player .song__buttons {
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.player .song__buttons * {
+    filter: invert(0.6);
+    cursor: pointer;
+}
+
+.player .song__buttons *:hover {
+    filter: none !important;
+}
+
+.player .col:not([class*="fake-player"]) {
+    display: none;
+}
+
+.player .fake-player {
+    gap: 1rem;
+    flex-grow: 1;
+    margin: 0 1rem;
+}
+
+
+.player .fake-player__buttons ul.flex {
+    gap: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.player .fake-player__buttons ul.flex .big-button {
+    margin: 0 0.5rem;
+    font-size: 2rem;
+}
+
+.player .fake-player__buttons ul.flex .big-button:hover {
+    transform: scale(1.1);
+}
+
+.player .fake-player__buttons li {
+    cursor: pointer;
+}
+
+.player .fake-player__bar .fake-bar {
+    margin: 0 1rem;
+    flex-grow: 1;
+    /* TODO: Ho usato max-width per farlo rimpicciolire solo una volta esaurito lo spazio ed evitare che diventi troppo grande, non avevo fatto caso che si dovesse rimpicciolire costantemente, ma visto che Gianluca ha detto che gli piace questa soluzione ho deciso di lasciarla :P */
+    max-width: 26.75rem;
+}
+
+.player .fake-player__bar .fake-bar:hover .fake-bar__inside {
+    animation: playsong 5s linear;
+    animation-fill-mode: forwards;
+}
+
+.player .fake-player__bar .fake-bar__inside {
+    width: 0;
+}
+
+@keyframes playsong {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.player .volume {
+    gap: 0.5rem;
+}
+
+.player .volume .fake-bar {
+    width: 5.25rem;
+}
+
+.player .volume .fake-bar__inside {
+    width: 20%;
+}
+
+/******************************************************
+    MEDIA QUERY
+*******************************************************/
+
+/* TODO: BONUS */
+@media screen and (min-width: 552px) {
+    .player .col:not([class*="fake-player"]) {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 639px) {
+
+    /******************************************************
+        HEADER - SIDEBAR
+    *******************************************************/
+
+    .sidebar {
+        align-items: flex-start;
+        max-width: 14rem;
+    }
+
+    .sidebar li.active::before {
+        display: block;
+    }
+
+    .sidebar li a span,
+    .sidebar li a h1 {
+        display: inline-block;
+    }
+
+    /* NUOVO LOGO */
+    .sidebar li #logo__large {
+        display: block;
+        width: 140px;
+    }
+
+    /* NUOVO LOGO */
+    .sidebar li #logo {
+        display: none;
+    }
+
+    .sidebar .sidebar-body {
+        display: block;
+    }
+
+    .sidebar .sidebar-body .add__playlist {
+        display: flex;
+    }
+
+    .sidebar .download span {
+        display: inline;
+    }
+
+    .sidebar .sidebar__profile::before {
+        display: block;
+    }
+
+    .sidebar .sidebar-footer {
+        align-items: flex-start;
+    }
+
+    .sidebar .download .container-arrow {
+        margin-bottom: 0;
+    }
+
+    .sidebar .sidebar-footer .sidebar__profile figcaption {
+        display: inline;
+    }
+
+}
+
+@media screen and (min-width: 878px) {
+
+    /******************************************************
+        CONTAINER - NAV
+    *******************************************************/
+
+    /* TODO: BONUS */
+    .container .container-nav {
+        position: sticky;
+        top: 0;
+        left: 0;
+        background-color: rgba(20, 25, 34, 0.9);
+        padding-bottom: 1.5rem;
+        z-index: 1;
+    }
+
+    /******************************************************
+        CONTAINER - CONTENT
+    *******************************************************/
+
+    .container-content .container-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /******************************************************
+        ASIDE - PLAYER
+    *******************************************************/
+
+    .player .song__buttons {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+
+    /******************************************************
+        CONTAINER NAV
+    *******************************************************/
+
+    .container-content .container-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+}
+
+/******************************************************
+    TODO: DEBUG RULES
+*******************************************************/
+
+/* .debug .main-main {
+    background-color: aqua;
+} */
+
+/* body.debug {
+    color: blue;
+} */
+
+/* .debug .player {
+    padding: 2rem;
+} */
+
+/* .debug .sidebar {
+    padding: 1rem;
+} */
+
+/* .debug .upgrade {
+    padding: 2rem;
+} */
+
+/* .debug .container-nav {
+    padding: 1rem;
+} */
