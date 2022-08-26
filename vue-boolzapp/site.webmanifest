@@ -1,13 +1,13 @@
 {
-    "shortname": "Home",
-    "name": "Lama Homepage",
+    "shortname": "Lamazapp",
+    "name": "Lama whatzapp-mockup",
     "icons": [
         {
-            "src": "images/icon-logo.JPG",
+            "src": "./img/logo.png",
             "type": "image/png",
             "sizes": "192x192"
         }
     ],
-    "theme_color": "#000074",
+    "theme_color": "#009688",
     "display": "fullscreen"
 }

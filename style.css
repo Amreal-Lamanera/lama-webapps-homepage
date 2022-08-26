@@ -107,7 +107,7 @@ h2 {
     border-radius: 1.5rem;
 }
 
-#smile {
+.bg_dark {
     background: linear-gradient(rgb(70, 70, 70), #000000);
 }
 
