@@ -1,20 +1,22 @@
-
 dayjs.extend(window.dayjs_plugin_customParseFormat);
 
+/**********************************
+   array dei contatti
+*********************************/
 const contacts = [
     {
-        name: 'Michela',
-        avatar: 'https://i.pravatar.cc/50?img=1',
+        name: 'Godrick',
+        avatar: 'img/godrick.jpg',
         visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                message: 'Hai portato a spasso il cane?',
+                message: 'Ti sei innestato la testa di drago?',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                message: 'Ricordati di stendere i panni',
+                message: 'Ricordati di chiudere i cancelli di Gran Tempesta!',
                 status: 'sent'
             },
             {
@@ -25,35 +27,35 @@ const contacts = [
         ],
     },
     {
-        name: 'Fabio',
-        avatar: 'https://i.pravatar.cc/50?img=2',
+        name: 'Melina',
+        avatar: 'img/melina.jpg',
         visible: true,
         messages: [
             {
                 date: '20/03/2020 16:30:00',
-                message: 'Ciao come stai?',
+                message: 'Cerco vergine delle dita',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
-                message: 'Bene grazie! Stasera ci vediamo?',
+                message: 'Se mi porti all\'albero madre sarò la tua vergine... abbiamo un accordo?',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Accetto.',
                 status: 'sent'
             }
         ],
     },
     {
-        name: 'Samuele',
-        avatar: 'https://i.pravatar.cc/50?img=3',
+        name: 'Agheel',
+        avatar: 'img/agheel.jpg',
         visible: true,
         messages: [
             {
                 date: '28/03/2020 10:10:40',
-                message: 'La Marianna va in campagna',
+                message: 'ROAAAAAARRRRR!',
                 status: 'received'
             },
             {
@@ -63,152 +65,111 @@ const contacts = [
             },
             {
                 date: '28/03/2020 16:15:22',
-                message: 'Ah scusa!',
+                message: 'ROAAAAAAAAAAAAAARRRRRRRRRRRRR!!!',
                 status: 'received'
             }
         ],
     },
     {
-        name: 'Alessandro B.',
-        avatar: 'https://i.pravatar.cc/50?img=4',
+        name: 'Malenia',
+        avatar: 'img/malenia.jpg',
         visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                message: 'Lo sai che ha aperto una nuova pizzeria?',
+                message: 'Chi sei?',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                message: 'Si, ma preferirei andare al cinema',
+                message: 'Io sono Malenia, spada di MIquella, e non sono mai stata sconfitta!',
                 status: 'received'
             }
         ],
     },
     {
-        name: 'Alessandro L.',
-        avatar: 'https://i.pravatar.cc/50?img=5',
+        name: 'Gedfrey',
+        avatar: 'img/godfrey.jpg',
         visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                message: 'Ricordati di chiamare la nonna',
+                message: 'Dov\'è Marika?',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                message: 'Va bene, stasera la sento',
+                message: 'E io che ne so! Da quando sta con Radagon non la sento molto...',
                 status: 'received'
             }
         ],
     },
     {
-        name: 'Claudia',
-        avatar: 'https://i.pravatar.cc/50?img=6',
+        name: 'Radhan',
+        avatar: 'img/radhan.jpeg',
         visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                message: 'Ciao Claudia, hai novità?',
+                message: 'Ciao Radhan, hai novità?',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                message: 'Non ancora',
+                message: 'Sto mangiando un soldato di Malenia, lasciami in pace',
                 status: 'received'
             },
             {
                 date: '10/01/2020 15:51:00',
-                message: 'Nessuna nuova, buona nuova',
+                message: 'Ah... ok.',
                 status: 'sent'
             }
         ],
     },
     {
-        name: 'Federico',
-        avatar: 'https://i.pravatar.cc/50?img=7',
+        name: 'Rykard',
+        avatar: 'img/rykard.png',
         visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                message: 'Fai gli auguri a Martina che è il suo compleanno!',
+                message: 'Fai gli auguri a Thanith che il suo compleanno',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
-                message: 'Grazie per avermelo ricordato, le scrivo subito!',
+                message: 'Grazie per avermelo ricordato, le sssssscrivo ssssssubito!',
                 status: 'received'
             }
         ],
     },
     {
-        name: 'Davide',
-        avatar: 'https://i.pravatar.cc/50?img=8',
+        name: 'Fia',
+        avatar: 'img/fia.jpg',
         visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                message: 'Ciao, andiamo a mangiare la pizza stasera?',
+                message: 'Ciao, dormiamo insieme stasera?',
                 status: 'received'
             },
             {
                 date: '10/01/2020 15:50:00',
-                message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+                message: 'Ma non eri fidanzata?',
                 status: 'sent'
             },
             {
                 date: '10/01/2020 15:51:00',
-                message: 'OK!!',
-                status: 'received'
-            }
-        ],
-    },
-    {
-        name: 'Davide',
-        avatar: 'https://i.pravatar.cc/50?img=8',
-        visible: true,
-        messages: [
-            {
-                date: '10/01/2020 15:30:55',
-                message: 'Ciao, andiamo a mangiare la pizza stasera?',
-                status: 'received'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:51:00',
-                message: 'OK!!',
-                status: 'received'
-            }
-        ],
-    },
-    {
-        name: 'Davide',
-        avatar: 'https://i.pravatar.cc/50?img=8',
-        visible: true,
-        messages: [
-            {
-                date: '10/01/2020 15:30:55',
-                message: 'Ciao, andiamo a mangiare la pizza stasera?',
-                status: 'received'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:51:00',
-                message: 'OK!!',
+                message: 'Io sono una compagna di morte, mica ho il ragazzo fisso!',
                 status: 'received'
             }
         ],
     },
 ];
 
+/**********************************
+   array delle risposte casuali
+*********************************/
 const answers = [
     'Non ci sono più le mezze stagioni',
     'Oggi ci sei, domani chissà',
@@ -249,6 +210,9 @@ const answers = [
 
 const app = new Vue({
     el: '#app',
+    /**********************************
+        DATA
+     *********************************/
     data: {
         smartphoneChat: false,
         active: null,
@@ -258,42 +222,77 @@ const app = new Vue({
         text: '',
         addingContact: false,
         newAvatar: '',
+        newName: '',
         showMsg: -1,
         showInfo: false,
         writing: false,
         write: 'Online',
-        answers
+        answers,
+        addContactPopup: false,
+        statusPopup: false,
+        notificationsAlert: true
     },
+    /**********************************
+        COMPUTED
+     *********************************/
     computed: {
+        /**********************************
+            ritorna l'array dei messaggi 
+            della chat attivo
+        *********************************/
         getMessages() {
             this.smartphoneChat = true;
             return this.contacts[this.active].messages;
         },
+        /**********************************
+            ritorna l'array dei messaggi
+            contenente l'input text
+        *********************************/
         getContactsFiltered() {
             if (!this.text) return contacts
             const contactFiltered = this.contacts.filter((el) => {
                 const name = el.name.toUpperCase();
                 const text = this.text.toUpperCase();
-                // console.log(name.includes(this.text));
                 return name.includes(text);
             })
-            console.log(contactFiltered);
             return contactFiltered;
         }
     },
+    /**********************************
+        METHODS
+     *********************************/
     methods: {
+        /**********************************
+            ritorna l'ora come stringa
+            'HH:mm' dell'ultimo messaggio
+        *********************************/
         getHour(messages) {
             const last = messages.length - 1;
             if (last < 0) return;
             let date = messages[messages.length - 1].date;
             return this.formatHour(date);
         },
+
+        /**********************************
+            prende una data e ritorna 
+            l'ora come stringa 'HH:mm'
+        *********************************/
         formatHour(date) {
             return dayjs(date, 'DD/MM/YYYY HH:mm:ss').format('HH:mm');
         },
+
+        /**********************************
+            imposta l'indice della chat
+            attiva
+        *********************************/
         moveActive(index) {
             this.active = index;
         },
+
+        /**********************************
+            aggiunge il messaggio inviato
+            alla chat e genera una risposta
+        *********************************/
         addMessage() {
             this.newMessage = this.newMessage.trim();
             if (!this.newMessage || this.active === null) return
@@ -322,14 +321,31 @@ const app = new Vue({
 
             this.newMessage = ''
         },
+
+        /**********************************
+            dato un indice i ritorna 
+            l'ultimo messaggio del contatto
+            in posizione i
+        *********************************/
         getLastMsg(i) {
             const last = this.contacts[i].messages.length - 1;
             if (last < 0) return;
             return this.contacts[i].messages[last].message;
         },
+
+        /**********************************
+            resetta la variabile search
+        *********************************/
         resetInput() {
             this.search = false;
         },
+
+        /**********************************
+            se search non era attivo
+            lo attiva e resetta il testo
+            altrimenti passa il focus
+            sull'input text
+        *********************************/
         controlSearch() {
             if (!this.search) {
                 this.search = true;
@@ -339,18 +355,30 @@ const app = new Vue({
                 this.$refs.typeBox.focus();
             }
         },
+
+        /**********************************
+            controlla che l'input text
+            sia vuoto e attiva search
+            con un ritardo di 200ms
+            altrimenti causerebbe un bug
+        *********************************/
         controlInput() {
-            // console.log('blur');
             setTimeout(() => {
                 if (this.text === '') this.search = true;
-                // console.log(this.search);
             }, 200)
         },
+
+        /**********************************
+            aggiunge un nuovo contatto ai
+            messaggi
+        *********************************/
         addContact() {
             const newContact = new Object;
-            if (this.text === '') alert('Nome mancante')
+            // this.newName = this.text;
+            console.log(this.newName);
+            if (this.newName === '') alert('Nome mancante')
             else {
-                newContact.name = this.text;
+                newContact.name = this.newName;
                 if (this.newAvatar === '') alert('Avatar assente')
                 else {
                     newContact.avatar = this.newAvatar;
@@ -360,41 +388,125 @@ const app = new Vue({
             }
             this.addingContact = false;
         },
+
+        /**********************************
+            al click sulla spunta del
+            messaggio SE il messaggio sele-
+            zionato come da mostrare è lo
+            stesso che sto analizzando
+            chiudo il layover
+            ALTRIMENTI SE
+            ho cliccato con uno diverso
+            nascondo il layover
+            in ogni caso imposto come
+            messaggio da visualizzare quello
+            che ho cliccato
+        *********************************/
         changeShow(i) {
             if (this.showMsg === i) {
                 this.showMsg = -1;
             }
             else {
-                // console.log(this.showMsg, i);
                 if (this.showMsg !== i) this.showInfo = false;
                 this.showMsg = i;
             }
         },
-        isDate(message) {
-            console.log(dayjs(message).isValid());
-            if (dayjs(message).format('DD/MM/YYYY HH:mm:ss') === 'Invalid Date') return false
-            return true
+
+        /**********************************
+            nascondo/mostro il layout
+            e imposto il messaggio da
+            mostrare all'indice i passato
+            come parametro
+        *********************************/
+        invertInfo(i) {
+            this.showMsg = i;
+            this.showInfo = !this.showInfo;
         },
+
+        /**********************************
+            funzione che dato un indice i
+            elimina il messaggio in
+            posizione i dalla chat attiva
+        *********************************/
         deleteMsg(i) {
             this.getMessages.splice(i, 1)
             this.showMsg = -1;
             this.msg = '';
             this.editingMsg = false;
         },
-        invertInfo(i) {
-            this.showMsg = i;
-            this.showInfo = !this.showInfo;
-        },
+
+        /**********************************
+            ritorna una stringa contenente
+            l'ultimo accesso del contatto
+            della chat attiva
+        *********************************/
         getLastAcc() {
-            const contact = this.contacts[this.active];
-            const lastMsg = contact.messages.length - 1;
-            const string = contact.messages[lastMsg].date.split(' ');
-            return string[0] + ' alle ' + string[1];
+            const contact = this.getMessages;
+            const lastMsg = contact.length - 1;
+            const string = contact[lastMsg].date.split(' ');
+            return 'il ' + string[0] + ' alle ' + string[1];
         },
+
+        /**********************************
+            ritorna una stringa contenente
+            una risposta casuale
+        *********************************/
         randomMsg() {
             const length = this.answers.length;
             const random = Math.floor(Math.random() * length);
             return this.answers[random];
+        },
+
+        /**********************************
+            ritorna una stringa contenente
+            il link all'avatar del contatto
+            della chat attiva
+        *********************************/
+        getAvatar() {
+            return this.contacts[this.active].avatar;
+        },
+
+        /**********************************
+            ritorna una stringa contenente
+            il nome del contatto
+            della chat attiva
+        *********************************/
+        getName() {
+            return this.contacts[this.active].name;
+        },
+
+        /**********************************
+            controlla se la chat è nuova
+        *********************************/
+        isNew() {
+            return !this.getMessages.length;
+        },
+        /**********************************
+            gestisce il click su
+            "crea nuovo"
+        *********************************/
+        addContactHandler() {
+            this.addContactPopup = false;
+            this.addingContact = true;
+            this.newName = '';
+
+        },
+        /**********************************
+            gestisce la chiusura dei pop-up
+            cliccando fuori da essi
+        *********************************/
+        popupsHandler() {
+            this.statusPopup = false;
+            this.addContactPopup = false;
+            this.addingContact = false;
+        },
+        /**********************************
+            gestisce il click su
+            "aggiungi ai contatti"
+        *********************************/
+        addingContactHandler() {
+            this.addingContact = true;
+            this.newName = this.text;
         }
     }
 })

@@ -34,7 +34,7 @@
 
     <body class="">
 
-        <div id="app">
+        <div id="app" @click="popupsHandler">
 
             <div class="container-fluid main-container row">
                 <aside class="d-md-block col-md-4 p-0" :class="smartphoneChat ? 'd-none' : 'd-block'">
@@ -47,15 +47,34 @@
                                     <span class="me__name">Francesco</span>
                                 </div>
 
-                                <div class="me__buttons c_grey">
-                                    <i class="fa-solid fa-circle-notch pointer"></i>
-                                    <i class="fa-solid fa-message px-2 pointer"></i>
-                                    <i class="fa-solid fa-ellipsis-vertical pointer"></i>
+                                <div class="me__buttons">
+                                    <i class="fa-solid fa-circle-notch pointer position-relative"
+                                        @click.stop="statusPopup = !statusPopup">
+
+                                        <div class="main-popup d-flex p-3 align-items-center justify-content-center flex-column position-absolute popup__left"
+                                            v-if="statusPopup" @click.stop>
+                                            <span>Sei online</span>
+                                        </div>
+
+                                    </i>
+
+                                    <i class="fa-solid fa-plus px-2 pointer position-relative"
+                                        @click.stop="addContactPopup = !addContactPopup">
+
+                                        <div class="main-popup d-flex p-3 align-items-center justify-content-center flex-column position-absolute popup__middle"
+                                            v-if="addContactPopup" @click.stop>
+                                            <span class=" mb-3">Vuoi aggiungere un nuovo contatto?</span>
+                                            <div class="my__btn" @click.stop="addContactHandler">
+                                                Crea Nuovo</div>
+                                        </div>
+                                    </i>
+
+                                    <i class="fa-solid fa-ellipsis-vertical pointer c_grey"></i>
                                 </div>
                             </div>
                         </header>
 
-                        <div class="notifications d-flex p-3 align-items-center">
+                        <div class="notifications d-flex p-3 align-items-center" v-if="notificationsAlert">
 
                             <div
                                 class="not__bell profile bg-white d-flex align-items-center justify-content-center me-2 pointer">
@@ -64,8 +83,10 @@
 
                             <div class="not__desc">
                                 <span class="d-block">Ricevi notifiche di nuovi messaggi</span>
-                                <span class="font_small text-decoration-underline pointer">Attiva notifiche
-                                    desktop</span>
+                                <span class="font_small text-decoration-underline pointer"
+                                    @click="notificationsAlert = false">
+                                    Attiva notifiche desktop
+                                </span>
                             </div>
                         </div>
 
@@ -91,7 +112,7 @@
                                             <span class="d-block">
                                                 {{ contact.name}}
                                             </span>
-                                            <span class="last_msg font_small c_grey">
+                                            <span class="last_msg font_small" :class="index===active ? '' : 'c_grey'">
                                                 {{ getLastMsg(index) }}
                                             </span>
                                         </div>
@@ -101,30 +122,42 @@
                                         </span>
 
                                     </div>
+                                </template>
                             </div>
-                            </template>
 
                             <div v-if="getContactsFiltered.length === 0"
-                                class="contacts-card d-flex p-3 align-items-center justify-content-center flex-column">
+                                class="d-flex p-3 align-items-center justify-content-center flex-column">
                                 <span class="pt-5 mb-3">Contatto non presente</span>
-                                <div class="border-1 border-dark bg_grey p-3 border pointer"
-                                    @click="addingContact=true">
+                                <div class="my__btn" @click.stop="addingContactHandler">
                                     Aggiungi
                                     ai contatti</div>
                             </div>
 
                             <div v-if="addingContact"
-                                class="pop-up bg_light-grey p-5 d-flex flex-column justify-content-center align-items-center">
-                                <div>
-                                    Nome: <input v-model="text" class="me-5" @keyup.enter="addContact">
-                                    Avatar Link: <input v-model="newAvatar" class="mb-5" @keyup.enter="addContact">
+                                class="pop-up bg_light-grey d-flex flex-column justify-content-center align-items-center"
+                                @click.stop>
+                                <div class="input-container">
+                                    <span>
+                                        Nome:
+                                    </span>
+
+                                    <input v-model="newName" class="me-xxl-3 me-0" @keyup.enter="addContact"
+                                        placeholder="Inserisci il nome...">
+
+                                    <span>
+                                        Avatar Link:
+                                    </span>
+
+                                    <input v-model="newAvatar" class="mb-5" @keyup.enter="addContact"
+                                        placeholder="Inserisci un link...">
                                 </div>
+
+
+
                                 <div class="align-self-center d-flex">
-                                    <div class="border-1 border-dark bg_grey p-3 border pointer me-3 btn"
-                                        @click="addContact">
+                                    <div class="me-3 my__btn" @click="addContact">
                                         Salva</div>
-                                    <div class="border-1 border-dark bg_grey p-3 border pointer align-self-center btn"
-                                        @click="addingContact=false">
+                                    <div class="align-self-center my__btn" @click="addingContact=false">
                                         Annulla</div>
                                 </div>
                             </div>
@@ -135,20 +168,31 @@
                 </aside>
 
                 <main class="col-12 col-md-8 p-0 d-md-flex flex-column" :class="!smartphoneChat ? 'd-none' : 'd-flex'">
-                    <header class="me bg_grey">
-                        <div class="d-flex justify-content-between align-items-center p-3">
+                    <header class="me bg_grey" v-if="active !== null">
+                        <div class="d-flex justify-content-between align-items-center pe-3">
                             <div class="me__profile d-flex align-items-center">
                                 <i class="fa fa-arrow-left me-3 d-md-none pointer" aria-hidden="true"
                                     :class="smartphoneChat ? 'd-block' : 'd-none'" @click="smartphoneChat=false"></i>
-                                <img src="img/IMG_9783.JPEG" alt="My profile pic" class="me-3 profile">
-                                <div>
-                                    <span class="d-block">Francesco</span>
-                                    <span class="font_small c_dark-grey" v-if="!writing && active!= null">
-                                        Ultimo accesso: {{ getLastAcc() }}
-                                    </span>
-                                    <span class="font_small c_dark-grey" v-else-if="writing">
-                                        {{ write}}
-                                    </span>
+
+                                <div class="contacts-card d-flex p-3 align-items-center pointer bg_grey">
+
+                                    <img class="profile bg-white me-3" :src="getAvatar()">
+
+                                    <div class="d-flex flex-column">
+                                        <div class="msg_wrapper">
+                                            <span class="d-block">
+                                                {{ getName() }}
+                                            </span>
+                                        </div>
+
+                                        <span class="font_small c_dark-grey"
+                                            v-if="!writing && active!= null && !isNew()">
+                                            Ultimo accesso: {{ getLastAcc() }}
+                                        </span>
+                                        <span class="font_small c_dark-grey" v-else-if="writing">
+                                            {{ write}}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -165,6 +209,7 @@
                         <div v-if="active === null"
                             class="def-img d-flex align-items-center justify-content-center flex-column">
                             <img src="img/def.jpg" alt="">
+                            <h1 id="main-title">Lamazapp Web Desktop <b id="beta" class="text-uppercase">beta</b></h1>
                             <span class="font_small c_dark-grey">Invia e ricevi messaggi senza mantenere il telefono
                                 connesso a Internet.</span>
                         </div>
@@ -197,12 +242,13 @@
 
                     </div>
 
-                    <div class="chat-input">
+                    <div class="chat-input" v-if="active !== null">
                         <div class="d-flex align-items-center c_dark-grey">
                             <i class="fa-regular fa-face-smile"></i>
                             <input type="text" class="font_small border-0 p-3" placeholder="Scrivi un messaggio"
                                 v-model="newMessage" @keyup.enter="addMessage">
-                            <i class="fa fa-microphone" aria-hidden="true"></i>
+                            <i v-if="newMessage === ''" class="fa fa-microphone" aria-hidden="true"></i>
+                            <i v-else class="fa-solid fa-paper-plane" aria-hidden="true" @click="addMessage"></i>
                         </div>
                     </div>
 
