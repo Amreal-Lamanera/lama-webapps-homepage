@@ -261,7 +261,7 @@ const app = new Vue({
         helloArray,
         howArray,
         nextMessage: '',
-        // mediaRecorder: new MediaRecorder(mediaStreamObj)
+        // mediaRecorder: new MediaRecorder(mediaStreamObj),
         recognition: new SpeechRecognition(),
         record: false,
         recorder: null
@@ -342,7 +342,8 @@ const app = new Vue({
 
             // se sto rispondeno ad un messaggio aggiungo delle proprietà all'oggetto
             if (this.quotedMsg != null) {
-                newObj.quotedMsg = this.quotedMsg.message;
+                if (this.quotedMsg.messageUrl) newObj.quotedMsg = 'Audio \u{1F3B5}'
+                else newObj.quotedMsg = this.quotedMsg.message;
                 if (this.quotedMsg.status === 'sent') newObj.name = 'Tu';
                 else newObj.name = this.contacts[this.active].name;
                 this.quotedMsg = null;
@@ -609,7 +610,8 @@ const app = new Vue({
         /**********************************
             gestisce lo scroll della chat
         *********************************/
-        scrollHandler() {
+        scrollHandler(i) {
+            if (i !== this.getMessages.length - 1 && i !== undefined) return;
             this.$nextTick(function () {
                 const container = this.$refs.containerRef;
                 container.scrollTop = container.scrollHeight;
@@ -619,7 +621,8 @@ const app = new Vue({
         /**********************************
             gestisce lo scroll deli contatti
         *********************************/
-        scrollContactsHandler() {
+        scrollContactsHandler(i) {
+            if (i !== this.getContactsFiltered.length - 1 && i !== undefined) return;
             this.$nextTick(function () {
                 const container = this.$refs.contactsRef;
                 container.scrollTop = container.scrollHeight;
@@ -696,24 +699,42 @@ const app = new Vue({
         answerHandler(i) {
             this.quotedMsg = this.getMessages[i];
         },
-        onStartListening() {
 
-            this.recognition.addEventListener('result', this.onResult);
-            console.log(this.recognition);
-            this.$refs.microphone.style.color = 'red';
-            this.recognition.start();
-        },
-        onResult(e) {
-            let testo = e.results[0][0].transcript;
-            // const testoArray = testo.split(' ');
-            // testoArray.forEach(element => {
-            //     if (element === 'punto') element = '.'
-            // });
-            // testo = testoArray.join(' ')
-            this.newMessage = testo;
-            this.addMessage()
-            this.$refs.microphone.style.color = 'black';
-        },
+        // TODO: FUTURE FEATURES
+        /**********************************
+            funzione che inizia la
+            registrazione audio per
+            convertirlo in testo
+        *********************************/
+        // onStartListening() {
+        //     this.recognition.addEventListener('result', this.onResult);
+        //     this.$refs.microphoneTxt.style.color = 'red';
+        //     try {
+        //         this.recognition.start();
+        //     } catch {
+        //         //TODO: chiedere spiegazioni
+        //         this.recognition.stop();
+        //         this.$refs.microphoneTxt.style.color = 'black';
+        //     }
+        // },
+
+        /**********************************
+            funzione che gestisce l'audio
+            registrato e lo converte in
+            messaggio di testo
+        *********************************/
+        // onResult(e) {
+        //     console.log(e);
+        //     let testo = e.results[0][0].transcript;
+        //     this.newMessage = testo;
+        //     this.addMessage()
+        //     this.$refs.microphoneTxt.style.color = 'black';
+        // },
+
+        /**********************************
+            funzione che registra un
+            messaggio audio e lo gestisce
+        *********************************/
         recordAudio() {
             return new Promise(resolve => {
                 navigator.mediaDevices.getUserMedia({ audio: true })
@@ -734,12 +755,12 @@ const app = new Vue({
                                 mediaRecorder.addEventListener("stop", () => {
                                     const audioBlob = new Blob(audioChunks);
                                     const audioUrl = URL.createObjectURL(audioBlob);
-                                    const audio = new Audio(audioUrl);
-                                    const play = () => {
-                                        audio.play();
-                                    };
+                                    // const audio = new Audio(audioUrl);
+                                    // const play = () => {
+                                    // audio.play();
+                                    // };
 
-                                    resolve({ audioBlob, audioUrl, play });
+                                    resolve({ audioBlob, audioUrl/*, play*/ });
                                 });
 
                                 mediaRecorder.stop();
@@ -750,6 +771,11 @@ const app = new Vue({
                     });
             });
         },
+
+        /**********************************
+            funzione asincrona che gestisce
+            la registrazione
+        *********************************/
         async recordHandler() {
             if (!this.record) {
                 this.$refs.microphone.style.color = 'red';
@@ -765,6 +791,11 @@ const app = new Vue({
                 this.record = false;
             }
         },
+
+        /**********************************
+            funzione asincrona che aggiunge
+            un messaggio vocale alla chat
+        *********************************/
         addAudioMsg(src) {
             const messages = this.contacts[this.active].messages;
             let newObj = new Object();
@@ -776,7 +807,8 @@ const app = new Vue({
 
             // se sto rispondeno ad un messaggio aggiungo delle proprietà all'oggetto
             if (this.quotedMsg != null) {
-                newObj.quotedMsg = this.quotedMsg.message;
+                if (this.quotedMsg.messageUrl) newObj.quotedMsg = 'Audio \u{1F3B5}'
+                else newObj.quotedMsg = this.quotedMsg.message;
                 if (this.quotedMsg.status === 'sent') newObj.name = 'Tu';
                 else newObj.name = this.contacts[this.active].name;
                 this.quotedMsg = null;

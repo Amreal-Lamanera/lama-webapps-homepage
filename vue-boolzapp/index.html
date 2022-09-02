@@ -226,7 +226,7 @@
                                         </span>
 
                                         <div class="layover">
-                                            <div @click.stop="deleteHandler(index); scrollContactsHandler()"
+                                            <div @click.stop="deleteHandler(index); scrollContactsHandler(index)"
                                                 class="delete-btn">
                                                 X
                                             </div>
@@ -387,7 +387,7 @@
                                     </span>
                                 </div>
 
-                                <div class="layover" @click.stop="changeShow(index); scrollHandler()">
+                                <div class="layover" @click.stop="changeShow(index); scrollHandler(index)">
                                     <i class="fa-solid fa-angle-down pointer"></i>
                                 </div>
 
@@ -418,7 +418,7 @@
                             <span class="quote-title">
                                 {{ quotedMsg.status === 'sent'? 'Tu' : contacts[active].name }}
                             </span>
-                            {{ quotedMsg.message }}
+                            {{ quotedMsg.message ? quotedMsg.message : 'Audio &#127925;' }}
                         </div>
                         <div class="quote-cancel" @click="quotedMsg = null">
                             X
@@ -438,6 +438,8 @@
                                 v-model="newMessage" @keyup.enter="addMessage" @focus.prevent>
                             <i v-if="newMessage === ''" class="fa fa-microphone pointer" aria-hidden="true"
                                 @click="recordHandler" ref="microphone"></i>
+                            <!-- <i v-if="newMessage === ''" class="fa fa-microphone-alt pointer" aria-hidden="true"
+                                @click="onStartListening" ref="microphoneTxt"></i> -->
                             <i v-else class="fa-solid fa-paper-plane pointer" aria-hidden="true"
                                 @click="addMessage"></i>
                         </div>
