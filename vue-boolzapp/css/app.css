@@ -6,6 +6,7 @@
     --grey: #c2c2c2;
     --light-grey: #f1f1f1;
     --green: #009688;
+    --light-blue: #8edafc;
 }
 
 body {
@@ -29,10 +30,21 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.745);
 }
 
-.profile {
+.profile,
+.default-avatar {
     width: 3rem;
     aspect-ratio: 1;
     border-radius: 100%;
+}
+
+.default-avatar {
+    color: var(--green);
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .font_small {
@@ -66,7 +78,7 @@ body {
 }
 
 .my__btn {
-    background-color: #8edafc;
+    background-color: var(--light-blue);
     padding: 0.25rem 0.5rem;
     border-radius: 2rem;
     box-shadow: 0 0 2px #003853;
@@ -87,6 +99,16 @@ body {
     box-shadow: 0 0 5px #000;
 }
 
+.popup__bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    /* background-color: #000; */
+}
+
 /*****************************
     ASIDE
 *****************************/
@@ -101,6 +123,11 @@ nav {
     height: 100%;
 }
 
+nav header i {
+    width: 30px;
+    text-align: center;
+}
+
 header .me__buttons {
     display: none;
 }
@@ -111,7 +138,7 @@ header .me__buttons {
     }
 }
 
-header,
+.main-container header,
 .search-chat,
 .notifications {
     flex-basis: 0;
@@ -120,13 +147,12 @@ header,
 .main-popup {
     background-color: var(--grey);
     line-height: 1rem;
-    z-index: 1;
+    z-index: 99;
     border-radius: 1rem;
     font-size: 0.75rem;
     width: 200px;
     text-align: center;
     box-shadow: 0 0 1px black;
-    font-size: 1rem;
     cursor: auto;
     font-weight: normal;
 }
@@ -142,8 +168,14 @@ header,
     left: -100px;
 }
 
+.main-popup.popup__right {
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+}
+
 .notifications {
-    background-color: #8edafc;
+    background-color: var(--light-blue);
 }
 
 .contacts-container-wrapper {
@@ -157,8 +189,35 @@ header,
     background-color: #eaeaea;
 }
 
+.contacts-card .layover {
+    display: none;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
+
+.delete-popup {
+    z-index: 99;
+    background-color: #FFF;
+    border: 1px solid black;
+    top: 100%;
+    right: 0;
+    font-size: 0.75rem;
+    width: max-content;
+    padding: 1rem 0.5rem;
+}
+
+.contacts-card:hover .layover {
+    display: block;
+}
+
+.delete-btn {
+    font-weight: bold;
+    color: #505050;
+}
+
 .not__bell {
-    color: #8edafc;
+    color: var(--light-blue);
 }
 
 .notifications .font_small {
@@ -185,11 +244,6 @@ header,
 /*****************************
     MAIN
 *****************************/
-
-header {
-    flex-basis: 0;
-}
-
 main {
     background-image: url('../img/mine.jpg');
     background-repeat: repeat;
@@ -200,13 +254,13 @@ main {
 
 .chat-container {
     overflow: auto;
-    height: calc(100% - 200px);
+    /* height: calc(100% - 200px); */
     flex-basis: 0;
     flex-grow: 1;
 }
 
 .chat-container.my_p {
-    padding: 2rem 1rem 1rem 2.5rem;
+    padding: 2rem 3rem;
 }
 
 .chat-container #main-title {
@@ -231,13 +285,52 @@ main {
 }
 
 .chat-card {
-    max-width: 40%;
+    max-width: 100%;
     background-color: #FFF;
     border-radius: 0.5rem;
-    padding: 1.5rem 1rem;
-    margin-bottom: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     overflow-wrap: break-word;
     position: relative;
+    margin-top: 0.25rem;
+}
+
+.chat-card:first-of-type .bubble {
+    display: block;
+}
+
+.sent+.received .bubble,
+.received+.sent .bubble {
+    display: block;
+}
+
+.sent+.received,
+.received+.sent {
+    margin-top: 1rem;
+}
+
+.bubble {
+    width: 0;
+    height: 0;
+    position: absolute;
+    display: none;
+}
+
+.sent .bubble {
+    border-left: 1.5rem solid #d5f9ba;
+    border-bottom: 1rem solid transparent;
+    right: -1rem;
+    top: 0;
+}
+
+.received .bubble {
+    border-right: 1.5rem solid #FFF;
+    border-bottom: 1rem solid transparent;
+    left: -1rem;
+    top: 0;
+}
+
+.chat-card .msg {
+    margin-right: 1rem;
 }
 
 .chat-card .layover {
@@ -260,37 +353,84 @@ main {
     display: block;
 }
 
+.chat-card.received {
+    align-self: flex-start;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
 .chat-card.sent {
     background-color: #d5f9ba;
     align-self: flex-end;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.chat-card .quote {
+    padding: 0.5rem;
+    border-left: 5px solid blueviolet;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
 }
 
 .hour {
     position: absolute;
-    right: 5%;
+    right: 10%;
+    bottom: 5%;
+    z-index: 1;
 }
 
 .deleteOpt {
     position: absolute;
+    top: 75%;
     right: 5%;
     background-color: #FFF;
-    z-index: 2;
+    z-index: 99;
     box-shadow: 0 0 5px black;
     cursor: pointer;
+    font-size: 0.75rem;
+    width: 100px;
 }
 
 .deleteOpt .info,
-.deleteOpt .delete {
-    padding: 2rem;
+.deleteOpt .delete,
+.deleteOpt .answer {
+    padding: 0.25rem 0.5rem;
 }
 
 .deleteOpt .info:hover,
-.deleteOpt .delete:hover {
+.deleteOpt .delete:hover,
+.deleteOpt .answer:hover {
     background-color: var(--grey);
 }
 
+.quote {
+    padding: 1rem;
+    background-color: rgb(234, 234, 234);
+    border-left: 5px solid blueviolet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quote .quote-title {
+    display: block;
+    color: blueviolet;
+}
+
+.quote .quote-cancel {
+    color: blueviolet;
+    border: 2px solid blueviolet;
+    border-radius: 100%;
+    aspect-ratio: 1;
+    width: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .chat-input {
-    flex-basis: 0;
+    /* flex-basis: 0; */
     padding: 0.5rem 1.5rem;
     background-color: rgba(234, 234, 234, 0.9)
 }
@@ -303,13 +443,11 @@ main {
 
 .pop-up {
     position: absolute;
-    /* width: 90vw;
-    height: 90vh; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 5px black;
-    z-index: 1;
+    z-index: 99;
     padding: 3rem;
     border-radius: 1rem;
 }
@@ -330,9 +468,8 @@ main {
 }
 
 /*****************************
-    DEBUG 
+    DEBUG
 *****************************/
-
 .debug .main-container {
     border: 1px solid black;
 }

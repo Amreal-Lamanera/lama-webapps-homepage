@@ -1,4 +1,5 @@
 dayjs.extend(window.dayjs_plugin_customParseFormat);
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 /**********************************
    array dei contatti
@@ -6,7 +7,7 @@ dayjs.extend(window.dayjs_plugin_customParseFormat);
 const contacts = [
     {
         name: 'Godrick',
-        avatar: 'img/godrick.jpg',
+        avatar: 'godrick.jpg',
         visible: true,
         messages: [
             {
@@ -28,7 +29,7 @@ const contacts = [
     },
     {
         name: 'Melina',
-        avatar: 'img/melina.jpg',
+        avatar: 'melina.jpg',
         visible: true,
         messages: [
             {
@@ -50,7 +51,7 @@ const contacts = [
     },
     {
         name: 'Agheel',
-        avatar: 'img/agheel.jpg',
+        avatar: 'agheel.jpg',
         visible: true,
         messages: [
             {
@@ -72,7 +73,7 @@ const contacts = [
     },
     {
         name: 'Malenia',
-        avatar: 'img/malenia.jpg',
+        avatar: 'malenia.jpg',
         visible: true,
         messages: [
             {
@@ -88,8 +89,8 @@ const contacts = [
         ],
     },
     {
-        name: 'Gedfrey',
-        avatar: 'img/godfrey.jpg',
+        name: 'Godfrey',
+        avatar: 'godfrey.jpg',
         visible: true,
         messages: [
             {
@@ -106,7 +107,7 @@ const contacts = [
     },
     {
         name: 'Radhan',
-        avatar: 'img/radhan.jpeg',
+        avatar: 'radhan.jpeg',
         visible: true,
         messages: [
             {
@@ -128,7 +129,7 @@ const contacts = [
     },
     {
         name: 'Rykard',
-        avatar: 'img/rykard.png',
+        avatar: 'rykard.png',
         visible: true,
         messages: [
             {
@@ -145,7 +146,7 @@ const contacts = [
     },
     {
         name: 'Fia',
-        avatar: 'img/fia.jpg',
+        avatar: 'fia.jpg',
         visible: true,
         messages: [
             {
@@ -208,6 +209,25 @@ const answers = [
     'Qui casca l’asino',
 ]
 
+/**********************************
+   array dei saluti casuali
+*********************************/
+const helloArray = [
+    'Ciao',
+    'Bella',
+    'Hey',
+    'Eilà',
+    'Loda il sole',
+    'Benvenuto Tarnished'
+]
+
+const howArray = [
+    'Tutto bene, grazie',
+    'Non molto bene...',
+    'Nella norma',
+    'Alla grande!'
+]
+
 const app = new Vue({
     el: '#app',
     /**********************************
@@ -218,7 +238,7 @@ const app = new Vue({
         active: null,
         contacts,
         newMessage: '',
-        search: true,
+        search: false,
         text: '',
         addingContact: false,
         newAvatar: '',
@@ -230,7 +250,21 @@ const app = new Vue({
         answers,
         addContactPopup: false,
         statusPopup: false,
-        notificationsAlert: true
+        notificationsAlert: true,
+        deletePopup: false,
+        deleteIndex: -1,
+        myAvatar: 'img/IMG_9783.JPEG',
+        myName: 'Francesco',
+        editProfilePopup: false,
+        editingProfile: false,
+        quotedMsg: null,
+        helloArray,
+        howArray,
+        nextMessage: '',
+        // mediaRecorder: new MediaRecorder(mediaStreamObj)
+        recognition: new SpeechRecognition(),
+        record: false,
+        recorder: null
     },
     /**********************************
         COMPUTED
@@ -244,6 +278,7 @@ const app = new Vue({
             this.smartphoneChat = true;
             return this.contacts[this.active].messages;
         },
+
         /**********************************
             ritorna l'array dei messaggi
             contenente l'input text
@@ -274,7 +309,7 @@ const app = new Vue({
         },
 
         /**********************************
-            prende una data e ritorna 
+            prende una data e ritorna
             l'ora come stringa 'HH:mm'
         *********************************/
         formatHour(date) {
@@ -287,6 +322,7 @@ const app = new Vue({
         *********************************/
         moveActive(index) {
             this.active = index;
+            this.quotedMsg = null;
         },
 
         /**********************************
@@ -296,30 +332,48 @@ const app = new Vue({
         addMessage() {
             this.newMessage = this.newMessage.trim();
             if (!this.newMessage || this.active === null) return
-
-            this.contacts[this.active].messages.push({
+            const messages = this.contacts[this.active].messages;
+            let newObj = new Object();
+            newObj = {
                 date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message: this.newMessage,
                 status: 'sent'
-            });
+            }
 
+            // se sto rispondeno ad un messaggio aggiungo delle proprietà all'oggetto
+            if (this.quotedMsg != null) {
+                newObj.quotedMsg = this.quotedMsg.message;
+                if (this.quotedMsg.status === 'sent') newObj.name = 'Tu';
+                else newObj.name = this.contacts[this.active].name;
+                this.quotedMsg = null;
+            }
+
+            messages.push(newObj);
+            this.nextMessage = this.newMessage;
+            this.newMessage = '';
+            this.randomAnswer();
+            this.scrollHandler();
+        },
+
+        // funzione che genera una risposta
+        randomAnswer() {
+            // TODO: la simulazione di 'online' e 'sta scrivendo...' rimane buggata al cambio chat dopo l'invio del messaggio
+            const messages = this.contacts[this.active].messages;
             this.writing = true;
+
             setTimeout(() => {
                 this.write = 'Sta scrivendo...';
                 setTimeout(() => {
-                    this.contacts[this.active].messages.push({
+                    messages.push({
                         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                        message: this.randomMsg(),
+                        message: this.randomMsg(this.nextMessage),
                         status: 'received'
                     }
                     );
                     this.write = 'Online';
-                    this.writing = false;
-                }, 2000);
-            }, 3000)
-
-
-            this.newMessage = ''
+                    this.scrollHandler();
+                }, 1000); //2000
+            }, 2000) //3000
         },
 
         /**********************************
@@ -341,31 +395,30 @@ const app = new Vue({
         },
 
         /**********************************
-            se search non era attivo
-            lo attiva e resetta il testo
-            altrimenti passa il focus
-            sull'input text
+            funzione che gestisce il click
+            sulla lente dell'input
         *********************************/
         controlSearch() {
-            if (!this.search) {
-                this.search = true;
-                this.text = '';
-            }
-            else {
-                this.$refs.typeBox.focus();
-            }
+            // console.log('click lente');
+            this.$refs.typeBox.focus();
         },
 
         /**********************************
-            controlla che l'input text
-            sia vuoto e attiva search
-            con un ritardo di 200ms
-            altrimenti causerebbe un bug
+            funzione che gestisce il blur
+            dell'input
         *********************************/
-        controlInput() {
+        blurHandler() {
             setTimeout(() => {
-                if (this.text === '') this.search = true;
+                this.search = false;
             }, 200)
+        },
+
+        /**********************************
+            funzione che gestisce il click
+            sulla freccia dell'input
+        *********************************/
+        clickHandler() {
+            this.text = '';
         },
 
         /**********************************
@@ -374,42 +427,24 @@ const app = new Vue({
         *********************************/
         addContact() {
             const newContact = new Object;
-            // this.newName = this.text;
-            console.log(this.newName);
+
             if (this.newName === '') alert('Nome mancante')
             else {
                 newContact.name = this.newName;
-                if (this.newAvatar === '') alert('Avatar assente')
-                else {
-                    newContact.avatar = this.newAvatar;
-                    newContact.messages = new Array;
-                    this.contacts.push(newContact);
-                }
+                newContact.avatar = this.newAvatar;
+                newContact.messages = new Array;
+                this.contacts.push(newContact);
             }
             this.addingContact = false;
         },
 
         /**********************************
-            al click sulla spunta del
-            messaggio SE il messaggio sele-
-            zionato come da mostrare è lo
-            stesso che sto analizzando
-            chiudo il layover
-            ALTRIMENTI SE
-            ho cliccato con uno diverso
-            nascondo il layover
-            in ogni caso imposto come
+            Imposto come
             messaggio da visualizzare quello
             che ho cliccato
         *********************************/
         changeShow(i) {
-            if (this.showMsg === i) {
-                this.showMsg = -1;
-            }
-            else {
-                if (this.showMsg !== i) this.showInfo = false;
-                this.showMsg = i;
-            }
+            this.showMsg = i;
         },
 
         /**********************************
@@ -429,6 +464,9 @@ const app = new Vue({
             posizione i dalla chat attiva
         *********************************/
         deleteMsg(i) {
+            //se il messaggio che sto eliminando è quello quotato, svuoto quotedMsg
+            if (this.getMessages[i].message === this.quotedMsg.message) this.quotedMsg = null
+
             this.getMessages.splice(i, 1)
             this.showMsg = -1;
             this.msg = '';
@@ -443,17 +481,75 @@ const app = new Vue({
         getLastAcc() {
             const contact = this.getMessages;
             const lastMsg = contact.length - 1;
-            const string = contact[lastMsg].date.split(' ');
-            return 'il ' + string[0] + ' alle ' + string[1];
+            const date = contact[lastMsg].date
+            const string = date.split(' ');
+            return 'il ' + string[0] + ' alle ' + this.formatHour(date);
         },
 
         /**********************************
             ritorna una stringa contenente
             una risposta casuale
         *********************************/
-        randomMsg() {
+        randomMsg(msg) {
+            const howAre = [
+                'COME STAI',
+                'COME VA',
+                'TUTTO BENE'
+            ];
+            const msgUpper = msg.toUpperCase();
+
+            const helloLength = this.helloArray.length;
+            const helloRandom = Math.floor(Math.random() * helloLength);
+
+            const howLength = this.howArray.length;
+            const howRandom = Math.floor(Math.random() * howLength);
+
+            let answer = '';
+
+            for (let i = 0; i < this.helloArray.length; i++) {
+                const upperElement = this.helloArray[i].toUpperCase();
+                // console.log('array', upperElement, 'messaggio', msg);
+                if (msgUpper.includes(upperElement)) {
+                    if (upperElement.includes('LODA IL SOLE')) {
+                        this.nextMessage = '';
+                        this.writing = false;
+                        return 'Puttana!'
+                    }
+                    answer = this.helloArray[helloRandom];
+                }
+            }
+
+            for (let j = 0; j < howAre.length; j++) {
+                const element = howAre[j];
+                if (msgUpper.includes(element)) {
+                    if (answer === '') {
+                        this.nextMessage = '';
+                        this.writing = false;
+                        return this.howArray[howRandom];
+                    } else {
+                        this.nextMessage = element;
+                        this.randomAnswer();
+                        return answer;
+                    }
+                }
+            }
+
+            if (answer !== '') {
+                this.writing = false;
+                this.nextMessage = ''
+                return answer;
+            }
+
+            if (msgUpper.includes('CHI SEI')) {
+                this.writing = false;
+                this.nextMessage = ''
+                return 'Goku non lo sai...';
+            }
+
             const length = this.answers.length;
             const random = Math.floor(Math.random() * length);
+            this.nextMessage = ''
+            this.writing = false;
             return this.answers[random];
         },
 
@@ -481,6 +577,7 @@ const app = new Vue({
         isNew() {
             return !this.getMessages.length;
         },
+
         /**********************************
             gestisce il click su
             "crea nuovo"
@@ -489,17 +586,8 @@ const app = new Vue({
             this.addContactPopup = false;
             this.addingContact = true;
             this.newName = '';
+        },
 
-        },
-        /**********************************
-            gestisce la chiusura dei pop-up
-            cliccando fuori da essi
-        *********************************/
-        popupsHandler() {
-            this.statusPopup = false;
-            this.addContactPopup = false;
-            this.addingContact = false;
-        },
         /**********************************
             gestisce il click su
             "aggiungi ai contatti"
@@ -507,6 +595,196 @@ const app = new Vue({
         addingContactHandler() {
             this.addingContact = true;
             this.newName = this.text;
+        },
+
+        /**********************************
+            gestisce il click sulla freccia
+            indietro in mobile
+        *********************************/
+        mobileBackHandler() {
+            this.smartphoneChat = false;
+            this.active = null;
+        },
+
+        /**********************************
+            gestisce lo scroll della chat
+        *********************************/
+        scrollHandler() {
+            this.$nextTick(function () {
+                const container = this.$refs.containerRef;
+                container.scrollTop = container.scrollHeight;
+            })
+        },
+
+        /**********************************
+            gestisce lo scroll deli contatti
+        *********************************/
+        scrollContactsHandler() {
+            this.$nextTick(function () {
+                const container = this.$refs.contactsRef;
+                container.scrollTop = container.scrollHeight;
+            })
+        },
+
+        /**********************************
+            gestisce il click sulla X per
+            eliminare un contatto
+        *********************************/
+        deleteHandler(i) {
+            this.deleteIndex = i;
+            this.deletePopup = true;
+        },
+
+        /**********************************
+            funzione che elimina il
+            contatto a indice i
+        *********************************/
+        deleteContact(i) {
+            // se il contatto da eliminare è quello attivo svuoto il quotedMsg
+            if (i === this.active) this.quotedMsg = null;
+            // se il contatto da eliminare è quello attivo rimuovo l'indice attivo
+            if (i === this.active) this.active = null;
+            // se il contatto da eliminare è minore di quello attivo, decremento l'attivo di 1
+            if (i < this.active) this.active--;
+
+            this.contacts.splice(i, 1);
+            this.deletePopup = false;
+        },
+
+        /**********************************
+            gestisce il click sul tasto
+            modifica profilo
+        *********************************/
+        editProfileHandler() {
+            this.editingProfile = true;
+        },
+
+        /**********************************
+            funzione che modifica il
+            profilo
+        *********************************/
+        editProfile() {
+            const newName = this.newName.trim();
+            const newAvatar = this.newAvatar;
+            if (newName === '' && newAvatar === '') {
+                alert('Dati mancanti');
+            } else if (newAvatar === '') {
+                this.myName = newName;
+            } else if (newName = '') {
+                this.myAvatar = newAvatar;
+            } else {
+                this.myName = newName;
+                this.myAvatar = newAvatar;
+            }
+            this.newName = '';
+            this.newAvatar = '';
+            this.editingProfile = false;
+        },
+
+        /**********************************
+            funzione che data una stringa
+            ritorna la prima lettera
+        *********************************/
+        getFirstLetter(name) {
+            return name[0];
+        },
+
+        /**********************************
+            gestisce il click sul tasto
+            rispondi al messagio
+        *********************************/
+        answerHandler(i) {
+            this.quotedMsg = this.getMessages[i];
+        },
+        onStartListening() {
+
+            this.recognition.addEventListener('result', this.onResult);
+            console.log(this.recognition);
+            this.$refs.microphone.style.color = 'red';
+            this.recognition.start();
+        },
+        onResult(e) {
+            let testo = e.results[0][0].transcript;
+            // const testoArray = testo.split(' ');
+            // testoArray.forEach(element => {
+            //     if (element === 'punto') element = '.'
+            // });
+            // testo = testoArray.join(' ')
+            this.newMessage = testo;
+            this.addMessage()
+            this.$refs.microphone.style.color = 'black';
+        },
+        recordAudio() {
+            return new Promise(resolve => {
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(stream => {
+                        const mediaRecorder = new MediaRecorder(stream);
+                        const audioChunks = [];
+
+                        mediaRecorder.addEventListener("dataavailable", event => {
+                            audioChunks.push(event.data);
+                        });
+
+                        const start = () => {
+                            mediaRecorder.start();
+                        };
+
+                        const stop = () => {
+                            return new Promise(resolve => {
+                                mediaRecorder.addEventListener("stop", () => {
+                                    const audioBlob = new Blob(audioChunks);
+                                    const audioUrl = URL.createObjectURL(audioBlob);
+                                    const audio = new Audio(audioUrl);
+                                    const play = () => {
+                                        audio.play();
+                                    };
+
+                                    resolve({ audioBlob, audioUrl, play });
+                                });
+
+                                mediaRecorder.stop();
+                            });
+                        };
+
+                        resolve({ start, stop });
+                    });
+            });
+        },
+        async recordHandler() {
+            if (!this.record) {
+                this.$refs.microphone.style.color = 'red';
+                this.recorder = await this.recordAudio();
+                this.recorder.start();
+                this.record = true;
+            }
+            else {
+                this.$refs.microphone.style.color = 'black';
+                const myAudio = await this.recorder.stop();
+                this.addAudioMsg(myAudio.audioUrl);
+                this.recorder = null;
+                this.record = false;
+            }
+        },
+        addAudioMsg(src) {
+            const messages = this.contacts[this.active].messages;
+            let newObj = new Object();
+            newObj = {
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                messageUrl: src,
+                status: 'sent'
+            }
+
+            // se sto rispondeno ad un messaggio aggiungo delle proprietà all'oggetto
+            if (this.quotedMsg != null) {
+                newObj.quotedMsg = this.quotedMsg.message;
+                if (this.quotedMsg.status === 'sent') newObj.name = 'Tu';
+                else newObj.name = this.contacts[this.active].name;
+                this.quotedMsg = null;
+            }
+
+            messages.push(newObj);
+            this.randomAnswer();
+            this.scrollHandler();
         }
-    }
+    },
 })
