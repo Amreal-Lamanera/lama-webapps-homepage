@@ -262,11 +262,7 @@ const app = new Vue({
         howArray,
         nextMessage: '',
         // mediaRecorder: new MediaRecorder(mediaStreamObj),
-<<<<<<< HEAD
         // recognition: new SpeechRecognition(),
-=======
-        recognition: new SpeechRecognition(),
->>>>>>> be1de98c300becbe74c210b45808a555a65f7fa6
         record: false,
         recorder: null,
         prefDark: window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -712,7 +708,6 @@ const app = new Vue({
             registrazione audio per
             convertirlo in testo
         *********************************/
-<<<<<<< HEAD
         onStartListening() {
             this.recognition.addEventListener('result', this.onResult);
             this.$refs.microphoneTxt.style.color = 'red';
@@ -725,19 +720,6 @@ const app = new Vue({
                 else this.$refs.microphoneTxt.style.color = 'black';
             }
         },
-=======
-        // onStartListening() {
-        //     this.recognition.addEventListener('result', this.onResult);
-        //     this.$refs.microphoneTxt.style.color = 'red';
-        //     try {
-        //         this.recognition.start();
-        //     } catch {
-        //         //TODO: chiedere spiegazioni
-        //         this.recognition.stop();
-        //         this.$refs.microphoneTxt.style.color = 'black';
-        //     }
-        // },
->>>>>>> be1de98c300becbe74c210b45808a555a65f7fa6
 
         /**********************************
             funzione che gestisce l'audio
@@ -814,7 +796,6 @@ const app = new Vue({
             }
         },
 
-<<<<<<< HEAD
         // playHandler(i) {
         //     return new Promise(resolve => {
         //         const audio = new Audio(this.contacts[this.active].messages[i].messageUrl);
@@ -834,10 +815,6 @@ const app = new Vue({
 
         /**********************************
             funzione che aggiunge
-=======
-        /**********************************
-            funzione asincrona che aggiunge
->>>>>>> be1de98c300becbe74c210b45808a555a65f7fa6
             un messaggio vocale alla chat
         *********************************/
         addAudioMsg(src) {
