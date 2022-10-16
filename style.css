@@ -142,3 +142,8 @@ a:hover #social {
 #play {
     background-color: #FFF;
 }
+
+#bool {
+    aspect-ratio: 1;
+    object-fit: contain;
+}

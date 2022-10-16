@@ -1,5 +1,5 @@
 dayjs.extend(window.dayjs_plugin_customParseFormat);
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+// const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 /**********************************
    array dei contatti
@@ -262,9 +262,11 @@ const app = new Vue({
         howArray,
         nextMessage: '',
         // mediaRecorder: new MediaRecorder(mediaStreamObj),
-        recognition: new SpeechRecognition(),
+        // recognition: new SpeechRecognition(),
         record: false,
-        recorder: null
+        recorder: null,
+        prefDark: window.matchMedia("(prefers-color-scheme: dark)").matches
+        // prefDark: true
     },
     /**********************************
         COMPUTED
@@ -466,7 +468,7 @@ const app = new Vue({
         *********************************/
         deleteMsg(i) {
             //se il messaggio che sto eliminando è quello quotato, svuoto quotedMsg
-            if (this.getMessages[i].message === this.quotedMsg.message) this.quotedMsg = null
+            if (this.quotedMsg && this.getMessages[i].message === this.quotedMsg.message) this.quotedMsg = null
 
             this.getMessages.splice(i, 1)
             this.showMsg = -1;
@@ -706,17 +708,18 @@ const app = new Vue({
             registrazione audio per
             convertirlo in testo
         *********************************/
-        // onStartListening() {
-        //     this.recognition.addEventListener('result', this.onResult);
-        //     this.$refs.microphoneTxt.style.color = 'red';
-        //     try {
-        //         this.recognition.start();
-        //     } catch {
-        //         //TODO: chiedere spiegazioni
-        //         this.recognition.stop();
-        //         this.$refs.microphoneTxt.style.color = 'black';
-        //     }
-        // },
+        onStartListening() {
+            this.recognition.addEventListener('result', this.onResult);
+            this.$refs.microphoneTxt.style.color = 'red';
+            try {
+                this.recognition.start();
+            } catch {
+                //TODO: chiedere spiegazioni
+                this.recognition.stop();
+                if (this.prefDark) this.$refs.microphoneTxt.style.color = '#8696a0';
+                else this.$refs.microphoneTxt.style.color = 'black';
+            }
+        },
 
         /**********************************
             funzione che gestisce l'audio
@@ -753,7 +756,7 @@ const app = new Vue({
                         const stop = () => {
                             return new Promise(resolve => {
                                 mediaRecorder.addEventListener("stop", () => {
-                                    const audioBlob = new Blob(audioChunks);
+                                    const audioBlob = new Blob(audioChunks, { type: 'audio/mpeg' });
                                     const audioUrl = URL.createObjectURL(audioBlob);
                                     // const audio = new Audio(audioUrl);
                                     // const play = () => {
@@ -784,7 +787,8 @@ const app = new Vue({
                 this.record = true;
             }
             else {
-                this.$refs.microphone.style.color = 'black';
+                if (this.prefDark) this.$refs.microphone.style.color = '#8696a0';
+                else this.$refs.microphone.style.color = 'black';
                 const myAudio = await this.recorder.stop();
                 this.addAudioMsg(myAudio.audioUrl);
                 this.recorder = null;
@@ -792,8 +796,25 @@ const app = new Vue({
             }
         },
 
+        // playHandler(i) {
+        //     return new Promise(resolve => {
+        //         const audio = new Audio(this.contacts[this.active].messages[i].messageUrl);
+        //         audio.preload = 'metadata'
+        //         const play = () => {
+        //             audio.play()
+        //         };
+        //         resolve({ play })
+        //     })
+        // },
+
+        // async play(i) {
+        //     this.recorder = await this.playHandler(i);
+        //     this.recorder.play();
+        // },
+
+
         /**********************************
-            funzione asincrona che aggiunge
+            funzione che aggiunge
             un messaggio vocale alla chat
         *********************************/
         addAudioMsg(src) {
@@ -802,7 +823,7 @@ const app = new Vue({
             newObj = {
                 date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 messageUrl: src,
-                status: 'sent'
+                status: 'sent',
             }
 
             // se sto rispondeno ad un messaggio aggiungo delle proprietà all'oggetto
@@ -817,6 +838,11 @@ const app = new Vue({
             messages.push(newObj);
             this.randomAnswer();
             this.scrollHandler();
+        },
+
+        getDefImg() {
+            if (this.prefDark) return 'img/def-dark.png'
+            return 'img/def.jpg'
         }
-    },
+    }
 })
